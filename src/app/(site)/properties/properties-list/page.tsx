@@ -1,13 +1,14 @@
-import React from 'react';
+import React from "react";
 import { Metadata } from "next";
-import AdvanceSearch from '@/app/components/property-list/search';
+import AdvanceSearch from "@/app/components/property-list/search";
 
 export const metadata: Metadata = {
   title: "Properties List",
 };
 
-const Page = ({ searchParams }: any) => {
-  const category = searchParams?.category || ''; 
+const Page = async ({ searchParams }: any) => {
+  const resolvedSearchParams = await searchParams;
+  const category = resolvedSearchParams?.category || "";
 
   return (
     <>

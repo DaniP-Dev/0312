@@ -1,6 +1,3 @@
-
-
-
 "use client"
 import Image from "next/image"
 // Use public path strings for images (Next.js best practice)
@@ -65,7 +62,13 @@ export const Introduction = () => {
                     PackageVersions && PackageVersions.map((item)=>{
                         return(
                             <div key={item.id} className="lg:w-1/5 md:w-full text-center lg:border-b-0 border-b lg:border-e lg:last:border-e-0 last:border-b-0 border-border dark:border-darkborder">
-                            <Image src={item.img ?? "/images/documentation/placeholder.svg"} alt="npm-package"  className=" mx-auto w-10 h-10 " />
+                            <Image
+  src={item.img ?? "/images/documentation/placeholder.svg"}
+  alt="npm-package"
+  className="mx-auto w-10 h-10"
+  width={40}
+  height={40}
+/>
                             <h5 className="text-2xl font-bold mt-3.5 dark:text-white" >{`v${item.version}`}</h5>
                             <p className="text-base font-medium text-midnight_text dark:text-gray">{item.packageName}</p>
                         </div>
