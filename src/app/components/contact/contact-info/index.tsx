@@ -14,10 +14,10 @@ const ContactInfo = () => {
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
                   <span className="text-midnight_text dark:text-white text-xl font-bold">
-                    Email Us
+                    Escríbenos
                   </span>
                   <p className="text-midnight_text/70 font-normal text-xl max-w-80 pt-3 pb-7 dark:text-gray">
-                    Feel free to contact us at info@propertypro.com we’ll respond promptly
+                    Contáctanos en info@propertypro.com y te responderemos rápidamente para ayudarte a vender tu condominio.
                   </p>
                 </div>
               </div>
@@ -29,10 +29,10 @@ const ContactInfo = () => {
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
                   <span className="text-midnight_text dark:text-white text-xl font-bold">
-                    Address
+                    Dirección
                   </span>
                   <p className="text-midnight_text/70 font-normal text-xl max-w-80 pt-3 pb-7 dark:text-gray">
-                    221b Baker St, London NW1 6XE, United Kingdom
+                    221b Baker St, Londres NW1 6XE, Reino Unido
                   </p>
                 </div>
               </div>

@@ -6,21 +6,21 @@ import ContactInfo from "@/app/components/contact/contact-info";
 import ContactForm from "@/app/components/contact/form";
 import Location from "@/app/components/contact/office-location";
 export const metadata: Metadata = {
-  title: "Contact | Property-pro",
+  title: "Contacto",
 };
 
 const page = () => {
   const breadcrumbLinks = [
-    { href: "/", text: "Home" },
-    { href: "/contact", text: "Contact" },
+    { href: "/", text: "Inicio" },
+    { href: "/contact", text: "Contacto" },
   ];
   return (
     <>
       <HeroSub
-        title="Contact Us"
-        description="Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
-        breadcrumbLinks={breadcrumbLinks}
-      />
+              title="Contáctanos"
+              description="Estamos aquí para ayudarte a vender tu condominio. Escríbenos y recibe asesoría personalizada."
+              breadcrumbLinks={breadcrumbLinks}
+            />
       <ContactInfo />
       <ContactForm />
       <Location />

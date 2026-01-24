@@ -32,42 +32,42 @@ const features = [
 
 const searchOptions = {
     keywords: [
-        { value: '', label: 'Keyword', placeholder: 'Keyword' },
-        // Add more keyword options as needed
+        { value: '', label: 'Palabra clave', placeholder: 'Palabra clave' },
+        // Agrega más opciones de palabra clave si es necesario
     ],
     locations: [
-        { value: '', label: 'Location' }, // Placeholder option
+        { value: '', label: 'Ubicación' }, // Opción de marcador de posición
         { value: 'California', label: 'California' },
         { value: 'Texas', label: 'Texas' },
-        { value: 'New York', label: 'New York' },
+        { value: 'New York', label: 'Nueva York' },
         { value: 'Florida', label: 'Florida' },
         { value: 'Illinois', label: 'Illinois' },
     ],
     category : [
-        { value:'', label: 'Category' },
-        { value:'apartment', label: 'Apartment' },
+        { value:'', label: 'Categoría' },
+        { value:'apartment', label: 'Apartamento' },
         { value:'villa', label: 'Villa' },
-        { value:'office', label: 'Office' },
-        { value:'shop', label: 'Shop' },
-        { value:'house', label: 'House' },
-        { value:'warehouse', label: 'Warehouse' },
+        { value:'office', label: 'Oficina' },
+        { value:'shop', label: 'Local' },
+        { value:'house', label: 'Casa' },
+        { value:'warehouse', label: 'Depósito' },
     ],
     beds: [
-        { value: '', label: 'Beds' },
-        { value: '1', label: '1 Bed' },
-        { value: '2', label: '2 Beds' },
-        { value: '3', label: '3 Beds' },
-        { value: '4', label: '4 Beds' },
-        { value: '5', label: '5 Beds' },
-        // Add more bed options as needed
+        { value: '', label: 'Habitaciones' },
+        { value: '1', label: '1 habitación' },
+        { value: '2', label: '2 habitaciones' },
+        { value: '3', label: '3 habitaciones' },
+        { value: '4', label: '4 habitaciones' },
+        { value: '5', label: '5 habitaciones' },
+        // Agrega más opciones de habitaciones si es necesario
     ],
     garages: [
-        { value: '', label: 'Garages' },
-        { value: '1', label: '1 Garage' },
-        { value: '2', label: '2 Garages' },
-        // Add more garage options as needed
+        { value: '', label: 'Cocheras' },
+        { value: '1', label: '1 cochera' },
+        { value: '2', label: '2 cocheras' },
+        // Agrega más opciones de cocheras si es necesario
     ],
-    // Define other options similarly
+    // Define otras opciones de manera similar
 };
 
 const data = [

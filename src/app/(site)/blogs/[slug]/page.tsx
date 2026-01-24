@@ -83,7 +83,7 @@ export default async function Post({ params }: any) {
                                 <span className="text-base text-midnight_text font-medium dark:text-white pr-7 border-r border-solid border-gray dark:border-white w-fit">
                                     {format(new Date(post.date), "dd MMM yyyy")}
                                 </span>
-                                <span className="text-base text-midnight_text font-medium dark:text-white sm:pl-7 pl-0 w-fit">13 Comments</span>
+                                <span className="text-base text-midnight_text font-medium dark:text-white sm:pl-7 pl-0 w-fit">13 Comentarios</span>
                             </div>
                             <h2 className="text-midnight_text dark:text-white pt-7">
                                 {post.title}
@@ -101,7 +101,7 @@ export default async function Post({ params }: any) {
                             />
                             <div className="">
                                 <span className="text-[22px] leading-[1.2] font-bold text-midnight_text dark:text-white">Silicaman</span>
-                                <p className="text-xl text-gray dark:text-white">Author</p>
+                                <p className="text-xl text-gray dark:text-white">Autor</p>
                             </div>
                         </div>
                     </div>
