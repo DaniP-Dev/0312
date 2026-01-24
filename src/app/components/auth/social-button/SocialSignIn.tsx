@@ -1,13 +1,13 @@
 import React from "react";
-import { signIn } from "next-auth/react";
+
 
 
 const SocialSignIn = () => {
-  const handleGoogleSignIn = async () => {
-    await signIn("google");
+  const handleGoogleSignIn = () => {
+    alert("Google sign-in is disabled in presentational mode.");
   };
-  const handleGithubSignIn = async () => {
-    await signIn("github");
+  const handleGithubSignIn = () => {
+    alert("GitHub sign-in is disabled in presentational mode.");
   };
   return (
     <>
