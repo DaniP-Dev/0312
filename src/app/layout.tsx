@@ -10,10 +10,10 @@ import ScrollToTop from "./components/scroll-to-top";
 import Header from "./components/layout/header";
 import SessionProviderComp from "./provider/SessionProviderComp";
 
-import { getServerSession } from "next-auth"; // Add this import if using next-auth
+import { getServerSession } from "next-auth";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(); // Fetch the session
+  const session = await getServerSession();
 
   return (
     <html lang="en" suppressHydrationWarning>
