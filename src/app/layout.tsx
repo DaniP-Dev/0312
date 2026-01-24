@@ -9,6 +9,20 @@ import Footer from "./components/layout/footer";
 import ScrollToTop from "./components/scroll-to-top";
 import Header from "./components/layout/header";
 import SessionProviderComp from "./provider/SessionProviderComp";
+import type { Metadata } from "next";
+
+const description =
+  "Constructora inmobiliaria especializada en la venta de condominios modernos y de calidad | La Guajira, Colombia";
+
+export const metadata: Metadata = {
+  title: "Titulo de mi pagina",
+  description,
+  openGraph: {
+    title: "0312 | IGM ",
+    description,
+    images: ["/images/logo.png"],
+  },
+};
 
 export default function RootLayout({
   children,
