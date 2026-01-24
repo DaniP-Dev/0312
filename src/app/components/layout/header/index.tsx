@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { signOut, useSession } from "next-auth/react";
+
 import Image from "next/image";
 import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
@@ -11,7 +11,7 @@ import MobileHeaderLink from "./navigation/MobileHeaderLink";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
-  const { data: session } = useSession();
+
   const { theme, setTheme } = useTheme();
 
   const [data, setData] = useState<any[]>([]);
@@ -84,9 +84,9 @@ const Header: React.FC = () => {
   
 
 
+
   const handleSignOut = () => {
     localStorage.removeItem("user");
-    signOut();
     setUser(null);
   };
 
@@ -121,14 +121,14 @@ const Header: React.FC = () => {
             </svg>
           </button>
 
-          {user?.user || session?.user ? (
+          {user?.user ? (
             <>
               <div className="relative group flex items-center justify-center">
                 <Image src={"/images/avatar/avatar_1.jpg"} alt="avatar" width={35} height={35} className="rounded-full" />
                 <p
                   className="absolute w-fit text-sm font-medium text-center z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-primary text-white py-1 px-2 min-w-28 rounded-lg shadow-2xl top-full left-1/2 transform -translate-x-1/2 mt-3"
                 >
-                  {user?.user || session?.user?.name}
+                  {user?.user}
                 </p>
               </div>
               <button
@@ -196,7 +196,7 @@ const Header: React.FC = () => {
             <MobileHeaderLink key={index} item={item} />
           ))}
           <div className="mt-4 flex flex-col space-y-4 w-full">
-            {user?.user || session?.user ? (
+            {user?.user ? (
               <>
                 <button
                   className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
