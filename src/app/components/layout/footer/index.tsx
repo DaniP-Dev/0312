@@ -23,10 +23,10 @@ const Footer = () => {
           <div className="md:col-span-8 col-span-12 grid grid-cols-12 gap-4 px-4 sm:px-0">
             <div className="w-full lg:col-span-4 col-span-12">
               <h4 className="mb-4 text-lg text-white dark:text-white">
-                Address
+                Dirección
               </h4>
               <p className="mb-6 text-gray text-base">
-                Property Real estate 4263 Wilkinson Street Tennessee
+                Condominios Real Estate 4263 Wilkinson Street Tennessee
               </p>
               <div className="flex items-center gap-2">
                 <a
@@ -82,17 +82,17 @@ const Footer = () => {
             </div>
             <div className="w-full lg:col-span-4 col-span-12">
               <h4 className="mb-4 text-lg text-white dark:text-white">
-                Quick Links
+                Enlaces rápidos
               </h4>
               <ul>
                 <li>
                   <Link href="/contact" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Contact Support
+                    Contacto y soporte
                   </Link>
                 </li>
                 <li>
-                  <Link href="/properties/properties-list" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Properties
+                  <Link href="/propiedades/propiedades-list" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Propiedades
                   </Link>
                 </li>
                 <li>
@@ -104,27 +104,27 @@ const Footer = () => {
             </div>
             <div className="w-full lg:col-span-4 col-span-12">
               <h4 className="mb-4 text-lg text-white dark:text-white">
-                Popular Searches
+                Búsquedas populares
               </h4>
               <ul>
                 <li onClick={() => updateFilter('category', 'apartment')}>
-                  <Link href="/properties/properties-list?category=apartment" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Apartment for Rent
+                  <Link href="/propiedades/propiedades-list?category=apartment" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Apartamento en renta
                   </Link>
                 </li>
                 <li onClick={() => updateFilter('category', 'house')}>
-                  <Link href="/properties/properties-list?category=house" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    House for Buy
+                  <Link href="/propiedades/propiedades-list?category=house" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Casa en venta
                   </Link>
                 </li>
                 <li onClick={() => updateFilter('category', 'office')}>
-                  <Link href="/properties/properties-list?category=office" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Offices for Buy
+                  <Link href="/propiedades/propiedades-list?category=office" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Oficinas en venta
                   </Link>
                 </li>
                 <li onClick={() => updateFilter('category', 'shop')}>
-                  <Link href="/properties/properties-list?category=shop" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Shop for Rent
+                  <Link href="/propiedades/propiedades-list?category=shop" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Local en renta
                   </Link>
                 </li>
               </ul>
@@ -137,25 +137,25 @@ const Footer = () => {
           <div className="lg:max-w-45 max-w-full text-center lg:text-left mb-4 lg:mb-0">
             <div className="flex lg:flex-nowrap flex-wrap lg:flex-row lg:gap-11 gap-4 text-base sm:text-lg md:text-xl text-black text-opacity-50">
               <p className="text-white">
-                Phone :
+                Teléfono :
                 <Link href="#" className="text-gray hover:text-white"> +(690) 2560 0020</Link>
               </p>
               <p className="text-white">
-                Email :
+                Correo :
                 <Link href="#" className="text-gray hover:text-white"> real@property.com</Link>
               </p>
             </div>
           </div>
           <div className="max-w-lg w-full">
             <div className="flex justify-center lg:justify-end">
-              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white">Newsletter</p>
+              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white">Boletín</p>
               <input
                 type="text"
                 className="py-3 dark:bg-darkmode dark:text-gray !rounded-r-none border border-transparent dark:border-dark_border dark:focus:border-primary focus-visible:outline-none rounded-l-lg px-3 w-full sm:w-auto "
-                placeholder="Email address"
+                placeholder="Correo electrónico"
               />
               <button className="py-2 px-5 sm:px-9 bg-primary text-base text-white rounded-r-lg hover:bg-blue-700">
-                Subscribe
+                Suscribirse
               </button>
             </div>
           </div>

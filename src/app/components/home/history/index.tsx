@@ -12,20 +12,17 @@ export default function History() {
           data-aos="fade-right"
         >
           <p className="text-4xl text-midnight_text dark:text-white mb-8 font-bold">
-            Property History <br />
-            How we became number one
+            Nuestra Historia <br />
+            Cómo nos convertimos en líderes
           </p>
           <p className="mb-8 pb-2 text-gray">
-            Letraset sheets containing Lorem Ipsum passages and more recently
-            with desktop publishing. Various versions have evolved over the
-            years, sometimes by accident, sometimes as necessary making release
-            of Letraset sheets containing Lorem Ipsum passages.
+            Más de tres décadas ayudando a propietarios a vender sus condominios con éxito. Evolucionamos y mejoramos nuestros servicios para ofrecerte la mejor experiencia y resultados.
           </p>
           <Link
-            href="/properties/properties-list"
+            href="/propiedades/propiedades-list"
             className="text-xl px-9 py-3 border border-primary text-primary hover:text-white hover:bg-primary rounded-lg"
           >
-            More Details
+            Más detalles
           </Link>
         </div>
         <div
@@ -34,12 +31,12 @@ export default function History() {
         >
           <div className="bg-white dark:bg-darklight dark:text-white p-4 max-w-60 border-4 border-primary rounded-lg">
             <p className="mb-16 text-3xl text-midnight_text dark:text-white font-bold">
-              BEST REAL ESTATE COMPANY
+              MEJOR EMPRESA DE CONDOMINIOS
             </p>
             <div className="flex justify-between">
               <div>
                 <p className="text-black text-opacity-60 dark:text-gray">
-                  Years Experience
+                  Años de experiencia
                 </p>
                 <p className="text-[65px] leading-[1.2] -mt-1 text-midnight_text dark:text-white font-bold mb-2">
                   33

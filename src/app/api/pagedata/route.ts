@@ -13,20 +13,20 @@ const features = [
     {
         id: 1,
         imgSrc: "/images/features/rating.svg",
-        title: "Great Experience",
-        description: "Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
+        title: "Expertos en venta de condominios",
+        description: "Nuestro equipo especializado te acompaña en cada paso para vender tu condominio de forma rápida y segura."
     },
     {
         id: 2,
         imgSrc: "/images/features/Give-Women's-Rights.svg",
-        title: "Great Experience",
-        description: "Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
+        title: "Asesoría personalizada",
+        description: "Recibe atención personalizada y estrategias de venta adaptadas a tu propiedad y necesidades."
     },
     {
         id: 3,
         imgSrc: "/images/features/live-chat.svg",
-        title: "Great Experience",
-        description: "Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
+        title: "Promoción efectiva",
+        description: "Utilizamos canales digitales y tradicionales para maximizar la visibilidad y atraer compradores calificados."
     }
 ];
 

@@ -11,7 +11,7 @@ export default function DiscoverProperties() {
     const fetchData = async () => {
         try {
             const res = await fetch('/api/propertydata');
-            if (!res.ok) throw new Error('Failed to fetch');
+            if (!res.ok) throw new Error('No se pudo obtener los datos');
 
             const data = await res.json();
             const categoryMap: Record<string, { category: string, category_img: string, count: number }> = {};
@@ -32,7 +32,7 @@ export default function DiscoverProperties() {
             setPropertiesData(uniqueCategoryData);
 
         } catch (error) {
-            console.error('Error fetching services:', error);
+            console.error('Error obteniendo propiedades:', error);
         }
     };
 
@@ -43,20 +43,20 @@ export default function DiscoverProperties() {
     return (
         <section className='dark:bg-darkmode'>
             <div className="container lg:max-w-screen-xl md:max-w-screen-md mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-12 text-midnight_text dark:text-white" data-aos="fade-left">Discover Properties</h2>
+                <h2 className="text-4xl font-bold mb-12 text-midnight_text dark:text-white" data-aos="fade-left">Descubre propiedades</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-4 gap-8">
                     {propertiesData.map((property, index) => (
                         <div key={index} className="image-item block" onClick={() => updateFilter('category', property.category)} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
-                            <Link href={`/properties/properties-list`} className='group'>
+                            <Link href={`/propiedades/propiedades-list`} className='group'>
                                 <Image
                                     src={property.category_img}
-                                    alt="Image"
+                                    alt="Imagen"
                                     className='p-4 border-2 rounded-lg border-border dark:border-dark_border mb-6 group-hover:-translate-y-1 group-hover:duration-500'
                                     height={85}
                                     width={85}
                                 />
                                 <p className="text-[22px] leading-[1.2] font-semibold mt-2 text-midnight_text text-opacity-80 group-hover:text-opacity-100 dark:text-white dark:group-hover:text-white dark:group-hover:text-opacity-100 dark:text-opacity-70 mb-1 capitalize">{property.category}</p>
-                                <p className="text-base text-gray">{property.count} Properties</p>
+                                <p className="text-base text-gray">{property.count} propiedades</p>
                             </Link>
                         </div>
                     ))}

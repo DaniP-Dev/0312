@@ -17,7 +17,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
       className={`bg-white shadow-property dark:bg-darklight rounded-lg overflow-hidden`}
       data-aos="fade-up"
     >
-      <Link href={`/properties/properties-list/${property.slug}`} className={`group ${viewMode=="list" && 'flex' }`}>
+      <Link href={`/propiedades/propiedades-list/${property.slug}`} className={`group ${viewMode=="list" && 'flex' }`}>
         <div className={`relative ${viewMode=="list" && 'w-[30%]'}`}>
           <div className={`imageContainer h-[250px] w-full ${viewMode =="list" && 'h-full md:h-52'}`}>
             <Image

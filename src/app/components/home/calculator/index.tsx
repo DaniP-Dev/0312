@@ -4,7 +4,7 @@ import "../../../../app/style/index.css";
 import Link from "next/link";
 
 export default function Calculator() {
-  const [activeTab, setActiveTab] = useState("sell");
+  const [activeTab, setActiveTab] = useState("buy");
   const [price, setPrice] = useState(10000);
 
   const handleTabChange = (tab: any) => {
@@ -26,11 +26,10 @@ export default function Calculator() {
             className="text-4xl mb-4 font-bold text-midnight_text dark:text-white"
             data-aos="fade-left"
           >
-            Save Your Money
+            Ahorra tu dinero
           </h2>
           <p className="text-xl text-gray mb-12" data-aos="fade-left">
-            Sometimes by accident, sometimes chunks as necessary making this the
-            first true generator on the Internet.
+            A veces por accidente, a veces por necesidad, haciendo de este el primer generador real en Internet.
           </p>
           <div className="relative-container">
             <div className="main-div mb-16 pt-8">
@@ -41,9 +40,9 @@ export default function Calculator() {
                   data-aos-delay="100"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    3% Save
+                    3% de ahorro
                   </p>
-                  <p className="text-gray text-base">Above $50K</p>
+                  <p className="text-gray text-base">Sobre $50K</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -51,9 +50,9 @@ export default function Calculator() {
                   data-aos-delay="200"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    5% Save
+                    5% de ahorro
                   </p>
-                  <p className="text-gray text-base">Above $75K</p>
+                  <p className="text-gray text-base">Sobre $75K</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -61,32 +60,27 @@ export default function Calculator() {
                   data-aos-delay="300"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    8% Save
+                    8% de ahorro
                   </p>
-                  <p className="text-gray text-base">Above $90K</p>
+                  <p className="text-gray text-base">Sobre $90K</p>
                 </div>
               </div>
             </div>
           </div>
           <div data-aos="fade-up">
             <Link
-              href="/properties/properties-list"
+              href="/propiedades/propiedades-list"
               className="text-xl bg-primary py-3 px-8 text-white rounded-lg me-3 mb-2 border border-primary hover:bg-blue-700"
             >
-              Buy House
+              Comprar casa
             </Link>
-            <Link
-              href="/properties/properties-list"
-              className="text-xl hover:bg-primary hover:text-white py-3 px-8 text-primary border border-primary rounded-lg me-3 mb-2"
-            >
-              Sell House
-            </Link>
+            
           </div>
         </div>
         <div className="lg:w-auto w-full" data-aos="fade-right">
           <div className="bg-primary rounded-t-lg p-16 w-full">
             <p className="text-4xl text-white mb-6 font-bold flex items-center justify-center">
-              Savings Calculator
+              Calculadora de ahorro
             </p>
             <div className="flex justify-center">
               <div className="flex p-3 border-4 rounded-full bg-transparent border-cyan items-center justify-center">
@@ -98,23 +92,13 @@ export default function Calculator() {
                   }`}
                   onClick={() => handleTabChange("buy")}
                 >
-                  Buy
-                </button>
-                <button
-                  className={`px-6 py-2 text-base focus:outline-none ${
-                    activeTab === "sell"
-                      ? "text-white bg-cyan rounded-full"
-                      : "text-white transition duration-300 rounded-full"
-                  }`}
-                  onClick={() => handleTabChange("sell")}
-                >
-                  Sell
+                  Comprar
                 </button>
               </div>
             </div>
             <div className="items-center justify-center mt-12">
               <p className="text-white flex items-center justify-center font-bold">
-                SAVINGS
+                AHORRO
               </p>
               <p className="mb-6 text-white flex items-center justify-center font-bold text-[50px] leading-[1.2]">
                 ${price}
@@ -135,14 +119,14 @@ export default function Calculator() {
             </div>
           </div>
           <div className="p-4 bg-blue-700 text-white text-xl rounded-b-lg">
-            <p className="text-center mb-1 opacity-70">Have Questions?</p>
-            <Link
-              href={"tel:+909 887 0980"}
-              className="text-center font-bold inline-block w-full"
-            >
-              <span className="opacity-70 !font-normal">Call us : </span>+909
-              887 0980
-            </Link>
+              <p className="text-center mb-1 opacity-70">¿Tienes preguntas?</p>
+              <Link
+                href={"tel:+909 887 0980"}
+                className="text-center font-bold inline-block w-full"
+              >
+                <span className="opacity-70 !font-normal">Llámanos: </span>+909
+                887 0980
+              </Link>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
     const breadcrumbLinks = [
         { href: "/", text: "Home" },
-        { href: "/properties/properties-list", text: "Property List" },
+        { href: "/propiedades/propiedades-list", text: "Property List" },
     ];
 
 

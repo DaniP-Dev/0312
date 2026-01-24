@@ -15,7 +15,7 @@ const description =
   "Constructora inmobiliaria especializada en la venta de condominios modernos y de calidad | La Guajira, Colombia";
 
 export const metadata: Metadata = {
-  title: "Titulo de mi pagina",
+  title: "Contructora 0312",
   description,
   openGraph: {
     title: "0312 | IGM ",

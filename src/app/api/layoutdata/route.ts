@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 
 const headerData = [
-  { label: "Home", href: "/" },
+  { label: "Inicio", href: "/" },
   {
-    label: "Properties",
-    href: "/properties/properties-list",
+    label: "Propiedades",
+    href: "/propiedades/propiedades-list",
   },
   {
     label: "Blogs",
@@ -18,8 +18,8 @@ submenu: [
 */
     // ...existing code...
   },
-  { label: "Contact", href: "/contact" },
-  { label: "Documentation", href: "/documentation" },
+  { label: "Contacto", href: "/contact" },
+  { label: "Documentación", href: "/documentation" },
 ];
 
 export const GET = async () => {
