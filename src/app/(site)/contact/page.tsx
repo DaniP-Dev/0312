@@ -7,6 +7,7 @@ import ContactForm from "@/app/components/contact/form";
 import Location from "@/app/components/contact/office-location";
 export const metadata: Metadata = {
   title: "Contacto",
+  metadataBase: new URL("https://tudominio.com"), // Cambia por tu dominio real
 };
 
 const page = () => {

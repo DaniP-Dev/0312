@@ -19,7 +19,6 @@ submenu: [
     // ...existing code...
   },
   { label: "Contacto", href: "/contact" },
-  { label: "Documentación", href: "/documentation" },
 ];
 
 export const GET = async () => {
