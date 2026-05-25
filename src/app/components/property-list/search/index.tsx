@@ -2,7 +2,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Icon } from "@iconify/react";
 import Image from 'next/image';
-import HeroSub from '../../shared/hero-sub';
 import { PropertyContext } from '@/context-api/PropertyContext';
 import PropertyCard from '../../home/property-list/property-card';
 import { Filters } from '@/app/types/property/filtertypes';
@@ -26,7 +25,6 @@ type SearchFilterKey = Exclude<keyof Filters, "keyword" | "location" | "key">;
 export default function AdvanceSearch({ category }: { category?: string }) {
     const [price, setPrice] = useState(50);
     const [price1, setPrice1] = useState(50);
-    const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
     const { properties, updateFilter, filters } = useContext(PropertyContext)!;
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
     const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
@@ -51,12 +49,6 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
         fetchData()
     }, [])
-
-    const breadcrumbLinks = [
-        { href: "/", text: "Inicio" },
-        { href: "/propiedades/propiedades-list", text: "Lista de condominios" },
-    ];
-
 
     const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrice(Number(event.target.value));
@@ -100,13 +92,19 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
     return (
         <>
-            <HeroSub
-                title={(filters?.category) ? filters?.category: "Lista de condominios"}
-                description="Encuentra el condominio ideal para ti. Filtra por ubicación, precio y más opciones."
-                breadcrumbLinks={breadcrumbLinks}
-            />
-            <section className='px-4'>
+            <section className='px-4 pt-32 pb-16'>
                 <div className='lg:max-w-screen-xl max-w-screen-md mx-auto'>
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-6 px-4">
+                        <div>
+                            <p className="text-sm text-gray">Resultados de propiedades</p>
+                            <h1 className='text-2xl sm:text-3xl font-bold text-midnight_text'>
+                                {filters?.category ? `Categoria: ${filters.category}` : "Lista de propiedades"}
+                            </h1>
+                        </div>
+                        <p className='text-sm sm:text-base text-gray'>
+                            {filteredCount} resultado{filteredCount === 1 ? "" : "s"}
+                        </p>
+                    </div>
                     <div className='flex lg:hidden justify-between items-center mb-4'>
                         <span className='text-2xl ml-4 '>Filtro avanzado</span>
                         <button onClick={toggleOffCanvas} className='bg-blue-500 mr-4 text-white py-3 px-6 text-base rounded-lg'>
@@ -308,33 +306,12 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                         <option value="asc">Título (A-Z)</option>
                                         <option value="desc">Título (Z-A)</option>
                                     </select>
-
-                                    <button onClick={() => setViewMode('list')} className={`${viewMode == "list" ? 'bg-primary text-white' : 'bg-transparent text-primary'} p-3 border border-primary text-primary hover:text-white rounded-lg hover:bg-primary text-base`}>
-                                        <span>
-                                            <Icon
-                                                icon="famicons:list"
-                                                width="21"
-                                                height="21"
-                                                className=""
-                                            />
-                                        </span>
-                                    </button>
-                                    <button onClick={() => setViewMode('grid')} className={`${viewMode == "grid" ? 'bg-primary text-white' : 'bg-transparent text-primary'} p-3 border border-primary text-primary hover:text-white rounded-lg hover:bg-primary text-base`}>
-                                        <span>
-                                            <Icon
-                                                icon="ion:grid-sharp"
-                                                width="21"
-                                                height="21"
-                                                className=""
-                                            />
-                                        </span>
-                                    </button>
                                 </div>
                             </div>
                             {filteredProperties.length > 0 ?
-                                <div className={` ${viewMode === 'grid' ? 'grid sm:grid-cols-2' : 'flex flex-col'} gap-6 px-4`}>
+                                <div className="flex flex-col gap-6 px-4">
                                     {(sortOrder ? sortedProperties : properties).map((property: propertyData) => (
-                                        <PropertyCard key={property.id} property={property} viewMode={viewMode} />
+                                        <PropertyCard key={property.id} property={property} viewMode="list" />
                                     ))}
                                 </div>
                                 :

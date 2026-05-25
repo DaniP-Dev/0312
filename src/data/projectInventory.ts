@@ -2,9 +2,9 @@ import type { ProjectInventoryItem } from "../app/types/property/projectInventor
 
 export const projectInventoryData: ProjectInventoryItem[] = [
   {
-    id: "lotes-0312-001",
-    slug: "lotes-0312-20x25",
-    title: "Lotes 20x25 - Constructora 0312",
+    id: "Paraiso-Real",
+    slug: "Paraiso-Real",
+    title: "Paraíso Real",
     shortDescription:
       "540 lotes con servicios publicos y zonas comunes para vivienda familiar.",
     inventory: 540,

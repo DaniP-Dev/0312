@@ -1,80 +1,87 @@
 "use client";
-import "./styleHero.css";
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { PropertyContext } from "@/context-api/PropertyContext";
 import Carousel from "../../carousel";
+import { projectInventoryData } from "@/data/projectInventory";
 
 const Hero = () => {
   const router = useRouter();
-  const [propertiesData, setPropertiesData] = useState<any[]>([]);
-  const { properties, updateFilter } = useContext(PropertyContext)!;
-  const [activeTab, setActiveTab] = useState("buy");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [location, setLocation] = useState("");
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/propertydata");
-        if (!res.ok) throw new Error("Failed to fetch");
-
-        const data = await res.json();
-        setPropertiesData(data || []);
-      } catch (error) {
-        console.error("Error fetching services:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleAdvancedSearch = () => {
-    router.push("/propiedades/propiedades-list");
-  };
-
-  const handleSearchBuy = () => {
-    if (location.trim() === "") {
-      setError("Please enter a location to search.");
-      return;
-    }
-    setError("");
-    updateFilter("location", location);
-    updateFilter("tag", "Buy");
-    router.push(`/propiedades/propiedades-list`);
-  };
-
-  const suggestions = Array.from(
-    new Set(propertiesData.map((item) => item.location)),
-  );
-
-  const handleSelect = (value: any) => {
-    setLocation(value);
-    setShowSuggestions(false);
-  };
+  const featuredProject = projectInventoryData[0];
+  const inventoryLabel = featuredProject
+    ? `${featuredProject.inventory} lotes disponibles`
+    : "Inventario actualizado";
+  const lotSizeLabel = featuredProject
+    ? `${featuredProject.lotSize.frontMeters}m x ${featuredProject.lotSize.depthMeters}m`
+    : "Tamano de lote";
+  const highlights = featuredProject?.amenities?.slice(0, 3) ?? [];
 
   return (
-    <section className="min-h-screen relative pb-0 mt-10 lg:mt-0 bg-no-repeat bg-gradient-to-b from-white from-10% to-[#F8FBFF] to-90% overflow-x-hidden">
-      <div className="flex flex-col lg:flex-row w-full h-screen flex-1">
-        <div className="flex-1 lg:basis-2/3 flex items-center justify-center ">
-          <Carousel />
-        </div>
-        <div className="bg-[#F0F6FA] flex-1 lg:basis-1/3 flex items-start md:items-center justify-center pb-30 pt-5">
-          <div className="flex flex-col gap-0 w-full px-6">
-            <h2 className="flex text-center text-5xl font-bold text-midnight_text">
-              Encuentra tu mejor propiedad
-            </h2>
-            <div className="searchHost">
-              <div className="buttonStyle">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className=""
-                />
-                <div className="search"></div>
+    <section className="relative pt-32 pb-16 lg:pb-20 bg-gradient-to-b from-white via-[#F7FAFE] to-[#EEF5FC] overflow-x-hidden">
+      <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="lg:col-span-7">
+            <p className="text-primary font-semibold tracking-wide mb-4 uppercase">
+              Proyecto residencial en La Guajira
+            </p>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight text-midnight_text font-bold mb-5">
+              {featuredProject?.title ?? "Condominios y lotes para invertir"}
+            </h1>
+            <p className="text-gray text-lg leading-8 max-w-2xl mb-8">
+              {featuredProject?.shortDescription ??
+                "Te ayudamos a elegir la mejor propiedad con acompanamiento profesional, seguridad juridica y una oferta clara de inventario."}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div className="bg-white border border-border rounded-xl p-4">
+                <p className="text-xs text-gray mb-1">Inventario</p>
+                <p className="text-midnight_text font-bold text-base">{inventoryLabel}</p>
+              </div>
+              <div className="bg-white border border-border rounded-xl p-4">
+                <p className="text-xs text-gray mb-1">Tamano de lote</p>
+                <p className="text-midnight_text font-bold text-base">{lotSizeLabel}</p>
+              </div>
+              <div className="bg-white border border-border rounded-xl p-4">
+                <p className="text-xs text-gray mb-1">Ubicacion</p>
+                <p className="text-midnight_text font-bold text-base">
+                  {featuredProject?.location ?? "Ubicacion por definir"}
+                </p>
+              </div>
+            </div>
+
+            {highlights.length > 0 && (
+              <ul className="flex flex-wrap gap-3 mb-8">
+                {highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="text-sm text-midnight_text bg-white border border-border rounded-full px-4 py-2"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={() => router.push("/propiedades/propiedades-list")}
+                className="bg-primary text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Ver propiedades
+              </button>
+              <a
+                href="https://wa.me/573001234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white border border-primary text-primary px-7 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+              >
+                Hablar por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="bg-white border border-border rounded-2xl p-3 sm:p-4 shadow-property">
+              <div className="h-[340px] sm:h-[420px] lg:h-[500px] rounded-xl overflow-hidden">
+                <Carousel />
               </div>
             </div>
           </div>

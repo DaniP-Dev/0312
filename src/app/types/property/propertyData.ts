@@ -17,5 +17,13 @@ export type propertyData = {
     garages: number,
     region: string,
     name: string,
-    slug: string
+    slug: string,
+    inventory?: number,
+    lotSize?: {
+        frontMeters: number;
+        depthMeters: number;
+    },
+    services?: string[],
+    amenities?: string[],
+    shortDescription?: string,
 };

@@ -1,114 +1,136 @@
 import Image from "next/image";
-import React from "react";
 import Link from "next/link";
 import "../../../../style/index.css";
 import { propertyData } from "@/app/types/property/propertyData";
 
 interface PropertyCardProps {
   property: propertyData;
-  viewMode?: string;
+  viewMode?: "grid" | "list";
 }
 
-const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {  
-  
+const PropertyCard = ({ property, viewMode = "grid" }: PropertyCardProps) => {
+  const isList = viewMode === "list";
+  const isLot = property.type === "Lote" || Boolean(property.inventory || property.lotSize);
+  const lotSizeLabel = property.lotSize
+    ? `${property.lotSize.frontMeters}m x ${property.lotSize.depthMeters}m`
+    : property.livingArea;
+  const servicesLabel = property.services?.length
+    ? property.services.join(" - ")
+    : "Servicios no especificados";
+
   return (
     <div
-      key={property.id}
-      className={`bg-white shadow-property rounded-lg overflow-hidden`}
+      className="bg-white shadow-property rounded-lg overflow-hidden border border-border"
       data-aos="fade-up"
     >
-      <Link href={`/propiedades/propiedades-list/${property.slug}`} className={`group ${viewMode=="list" && 'flex' }`}>
-        <div className={`relative ${viewMode=="list" && 'w-[30%]'}`}>
-          <div className={`imageContainer h-[250px] w-full ${viewMode =="list" && 'h-full md:h-52'}`}>
+      <Link
+        href={`/propiedades/propiedades-list/${property.slug}`}
+        className={`group ${isList ? "flex flex-col md:flex-row" : "flex flex-col"} `}
+      >
+        <div className={`relative ${isList ? "md:w-[38%]" : "w-full"}`}>
+          <div className={`imageContainer w-full p-3 sm:p-4 bg-[#ffffff] ${isList ? "h-[205px] md:h-full" : "h-[205px]"}`}>
             <Image
-              src={property?.property_img}
-              alt={`Image of ${property.property_title}`}
-              width={400}
-              height={250}
-              className="w-full h-full object-cover group-hover:scale-125 duration-500"
+              src={property.property_img}
+              alt={`Imagen de ${property.property_title}`}
+              width={640}
+              height={420}
+              className="w-full h-full object-contain rounded-md"
             />
           </div>
-          <p className="absolute top-[10px] left-[10px] py-1 px-4 bg-white rounded-md text-primary items-center">
+          <p className="absolute top-[10px] left-[10px] py-1 px-3 bg-white rounded-md text-primary text-xs sm:text-sm font-semibold">
             {property.tag}
           </p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-[10px] right-[10px] bg-white p-2 rounded-lg"
-            viewBox="0 0 24 24"
-            width="38"
-            height="38"
-            fill="#2F73F2"
-          >
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
+
+          <p className="absolute top-[10px] right-[10px] py-1 px-3 bg-white/95 rounded-md text-midnight_text text-xs sm:text-sm font-semibold">
+            {property.status}
+          </p>
         </div>
-        <div className={`p-5 sm:p-8 text-opacity-50 ${viewMode=="list" && 'w-[70%] flex flex-col justify-center'}`}>
 
-          <div className="flex flex-col gap-1 border-b border-border mb-6">
-            
-            <div>
-              <p className="text-base text-gray">
-                {property.property_title}
+        <div className={`p-4 sm:p-5 ${isList ? "md:w-[62%] flex flex-col justify-center" : ""}`}>
+          <div className="flex flex-col gap-2 border-b border-border pb-4 mb-4">
+            <p className="text-sm uppercase tracking-wide text-primary font-semibold">
+              {property.category}
+            </p>
+            <p className="text-xl sm:text-2xl font-bold text-midnight_text group-hover:text-primary transition-colors">
+              {property.property_title}
+            </p>
+
+            {property.shortDescription && (
+              <p className="text-gray text-sm leading-6 hidden sm:block">
+                {property.shortDescription}
               </p>
-            </div>
+            )}
 
-            <div className="flex justify-between items-center pb-4">
-              <div className="font-bold text-2xl group-hover:text-primary text-midnight_text">
+            <div className="flex justify-between items-center gap-3 flex-wrap pt-2">
+              <p className="font-bold text-lg sm:text-xl text-midnight_text">
                 {property.property_price}
-              </div>
-              <div className="text-xs bg-[#DAE7FF] text-midnight_text text-primary py-1 px-2 rounded-lg font-bold">
+              </p>
+              <p className="text-xs bg-[#DAE7FF] text-midnight_text py-1 px-3 rounded-lg font-semibold">
                 {property.location}
-              </div>
+              </p>
             </div>
           </div>
 
-          <div className="flex gap-2 flex-wrap justify-between">
-            <div className="flex flex-col">
-              <p className="md:text-xl text-lg font-bold flex gap-2">
-                <Image
-                  src="/images/svgs/icon-bed.svg"
-                  alt="Bedrooms Icon"
-                  height={18}
-                  width={18}
-                  style={{ width: "auto", height: "auto" }}
-                />
-                {property.beds}
-              </p>
-              <p className="text-sm text-gray">
-                Bedrooms
-              </p>
+          {isLot ? (
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="rounded-lg bg-light px-3 py-2">
+                <p className="text-xs text-gray">Inventario</p>
+                <p className="text-sm sm:text-base font-bold text-midnight_text">
+                  {property.inventory ?? 0} lotes
+                </p>
+              </div>
+              <div className="rounded-lg bg-light px-3 py-2">
+                <p className="text-xs text-gray">Tamano</p>
+                <p className="text-sm sm:text-base font-bold text-midnight_text">{lotSizeLabel}</p>
+              </div>
+              <div className="rounded-lg bg-light px-3 py-2">
+                <p className="text-xs text-gray">Servicios</p>
+                <p className="text-sm font-medium text-midnight_text truncate">{servicesLabel}</p>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <p className="md:text-xl text-lg font-bold flex gap-2">
-                <Image
-                  src="/images/svgs/icon-tub.svg"
-                  alt="Bathrooms Icon"
-                  height={18}
-                  width={18}
-                  style={{ width: "auto", height: "auto" }}
-                />
-                {property.bathrooms}
-              </p>
-              <p className="text-sm text-gray">
-                Bathroom
-              </p>
+          ) : (
+            <div className="flex gap-2 flex-wrap justify-between">
+              <div className="flex flex-col">
+                <p className="md:text-xl text-lg font-bold flex gap-2">
+                  <Image
+                    src="/images/svgs/icon-bed.svg"
+                    alt="Icono habitaciones"
+                    height={18}
+                    width={18}
+                    style={{ width: "auto", height: "auto" }}
+                  />
+                  {property.beds}
+                </p>
+                <p className="text-sm text-gray">Habitaciones</p>
+              </div>
+              <div className="flex flex-col">
+                <p className="md:text-xl text-lg font-bold flex gap-2">
+                  <Image
+                    src="/images/svgs/icon-tub.svg"
+                    alt="Icono banos"
+                    height={18}
+                    width={18}
+                    style={{ width: "auto", height: "auto" }}
+                  />
+                  {property.bathrooms}
+                </p>
+                <p className="text-sm text-gray">Banos</p>
+              </div>
+              <div className="flex flex-col">
+                <p className="md:text-xl text-lg font-bold flex gap-2">
+                  <Image
+                    src="/images/svgs/icon-layout.svg"
+                    alt="Icono area"
+                    height={18}
+                    width={18}
+                    style={{ width: "auto", height: "auto" }}
+                  />
+                  {property.livingArea}
+                </p>
+                <p className="text-sm text-gray">Area</p>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <p className="md:text-xl text-lg font-bold flex gap-2">
-                <Image
-                  src="/images/svgs/icon-layout.svg"
-                  alt="Living Area Icon"
-                  height={18}
-                  width={18}
-                  style={{ width: "auto", height: "auto" }}
-                />
-                {property.livingArea}
-              </p>
-              <p className="text-sm text-gray">
-                Living Area
-              </p>
-            </div>
-          </div>
+          )}
         </div>
       </Link>
     </div>
