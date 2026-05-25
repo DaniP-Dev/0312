@@ -57,14 +57,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen relative pb-0 mt-10 lg:mt-0 dark:bg-darklight bg-no-repeat bg-gradient-to-b from-white from-10% dark:from-darkmode  to-90% dark:to-darklight overflow-x-hidden">
+    <section className="min-h-screen relative pb-0 mt-10 lg:mt-0 bg-no-repeat bg-gradient-to-b from-white from-10% to-[#F8FBFF] to-90% overflow-x-hidden">
       <div className="flex flex-col lg:flex-row w-full h-screen flex-1">
         <div className="flex-1 lg:basis-2/3 flex items-center justify-center ">
           <Carousel />
         </div>
-        <div className="bg-[#F0F6FA] dark:bg-darklight flex-1 lg:basis-1/3 flex items-start md:items-center justify-center pb-30 pt-5">
+        <div className="bg-[#F0F6FA] flex-1 lg:basis-1/3 flex items-start md:items-center justify-center pb-30 pt-5">
           <div className="flex flex-col gap-0 w-full px-6">
-            <h2 className="flex text-center text-5xl font-bold dark:text-white">
+            <h2 className="flex text-center text-5xl font-bold text-midnight_text">
               Encuentra tu mejor propiedad
             </h2>
             <div className="searchHost">
@@ -72,7 +72,7 @@ const Hero = () => {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="dark:bg-[#23272f] dark:text-white dark:placeholder:text-gray-300"
+                  className=""
                 />
                 <div className="search"></div>
               </div>

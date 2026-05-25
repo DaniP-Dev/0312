@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const ContactInfo = () => {
   return (
     <>
-      <section className="dark:bg-darkmode pt-8 pb-0 px-4">
+      <section className="pt-8 pb-0 px-4">
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
           <div className="flex md:flex-row flex-col lg:items-center items-start justify-center md:gap-8 gap-8">
             {/* Email */}
@@ -20,10 +20,10 @@ const ContactInfo = () => {
               </div>
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
-                  <span className="text-midnight_text dark:text-white text-xl font-bold">
+                  <span className="text-midnight_text text-xl font-bold">
                     Escríbenos
                   </span>
-                  <p className="text-midnight_text/70 font-normal text-xl max-w-80 pt-3 pb-2 dark:text-gray">
+                  <p className="text-midnight_text/70 font-normal text-xl max-w-80 pt-3 pb-2">
                     <a
                       href="mailto:constructora0312@gmail.com"
                       className="underline hover:text-primary"
@@ -41,10 +41,10 @@ const ContactInfo = () => {
               </div>
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
-                  <span className="text-midnight_text dark:text-white text-xl font-bold block mb-1">
+                  <span className="text-midnight_text text-xl font-bold block mb-1">
                     Dirección
                   </span>
-                  <p className="text-midnight_text/70 font-normal text-xl max-w-80 dark:text-gray mb-2">
+                  <p className="text-midnight_text/70 font-normal text-xl max-w-80 mb-2">
                     CARRERA 11 14 159 DISTRACCION LA GUAJIRA
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const ContactInfo = () => {
             ></iframe>
           </div>
         </div>
-        <div className="border-b border-solid border-border dark:border-dark_border"></div>
+        <div className="border-b border-solid border-border"></div>
       </section>
     </>
   );

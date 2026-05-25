@@ -58,7 +58,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <section className="dark:bg-darkmode lg:pb-24 pb-16 px-4">
+      <section className="lg:pb-24 pb-16 px-4">
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
           <div className="grid md:grid-cols-12 grid-cols-1 gap-8 items-center">  
             <div className="col-span-6">
@@ -73,7 +73,7 @@ const ContactForm = () => {
                       name='firstname'
                       value={formData.firstname}
                       onChange={handleChange}
-                      className="w-full text-17 px-4 rounded-lg py-2.5 border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0"
+                      className="w-full text-17 px-4 rounded-lg py-2.5 border-border border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0"
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
@@ -84,7 +84,7 @@ const ContactForm = () => {
                       name='lastname'
                       value={formData.lastname}
                       onChange={handleChange}
-                      className="w-full text-17 px-4 py-2.5 rounded-lg border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0"
+                      className="w-full text-17 px-4 py-2.5 rounded-lg border-border border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0"
                     />
                   </div>
                 </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
                       name='email'
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full text-17 px-4 py-2.5 rounded-lg border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0"
+                      className="w-full text-17 px-4 py-2.5 rounded-lg border-border border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0"
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
@@ -106,7 +106,7 @@ const ContactForm = () => {
                     name="specialist"
                       id="specialist"
                       value={formData.specialist}
-                      onChange={handleChange} className="custom-select w-full text-17 px-4 py-2.5 rounded-lg border-border dark:text-white border-solid dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0">
+                      onChange={handleChange} className="custom-select w-full text-17 px-4 py-2.5 rounded-lg border-border border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0">
                       <option value="">Elige un especialista</option>
                       <option value="Venta de condominios">Venta de condominios</option>
                       <option value="Asesoría personalizada">Asesoría personalizada</option>
@@ -123,7 +123,7 @@ const ContactForm = () => {
                       name='date'
                       value={formData.date}
                       onChange={handleChange}
-                      className="w-full text-17 px-4 rounded-lg  py-2.5 outline-none dark:text-white dark:bg-darkmode border-border border-solid border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0"
+                      className="w-full text-17 px-4 rounded-lg  py-2.5 outline-none border-border border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0"
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
@@ -134,7 +134,7 @@ const ContactForm = () => {
                       name='time'
                       value={formData.time}
                       onChange={handleChange}
-                      className="w-full text-17 px-4 rounded-lg py-2.5 border-border outline-none dark:text-white dark:bg-darkmode border-solid border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0"
+                      className="w-full text-17 px-4 rounded-lg py-2.5 border-border outline-none border-solid border transition-all duration-500 focus:border-primary focus:border-solid focus:outline-0"
                     />
                   </div>
                 </div>

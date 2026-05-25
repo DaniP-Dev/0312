@@ -21,7 +21,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
     <div className="relative w-full">
       <button
         onClick={item.submenu ? handleToggle : handlenav}
-        className={`flex items-center justify-between w-full py-2 px-3 rounded-md text-black focus:outline-none dark:text-white dark:text-opacity-60 ${path === item.href ? 'bg-primary text-white dark:bg-primary dark:text-white dark:text-opacity-100' : ' text-black dark:text-white '} ${path.startsWith(`/${item.label.toLowerCase()}`) ? "bg-primary text-white dark:bg-primary dark:text-white dark:text-opacity-100 " : null}`}
+        className={`flex items-center justify-between w-full py-2 px-3 rounded-md text-black focus:outline-none ${path === item.href ? 'bg-primary text-white' : ' text-black'} ${path.startsWith(`/${item.label.toLowerCase()}`) ? "bg-primary text-white " : null}`}
       >
         {item.label}
         {item.submenu && (
@@ -31,9 +31,9 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         )}
       </button>
       {submenuOpen && item.submenu && (
-        <div className="bg-white dark:bg-darkmode py-2 px-3 w-full">
+        <div className="bg-white py-2 px-3 w-full">
           {item.submenu.map((subItem, index) => (
-            <Link key={index} href={subItem.href} className={`block py-2 px-3  ${subItem.href === path ? '!text-primary dark:text-primary' : 'text-gray'}`}>
+            <Link key={index} href={subItem.href} className={`block py-2 px-3  ${subItem.href === path ? '!text-primary' : 'text-gray'}`}>
               {subItem.label}
             </Link>
           ))}

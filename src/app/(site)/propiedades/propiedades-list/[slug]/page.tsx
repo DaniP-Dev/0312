@@ -31,28 +31,21 @@ export default function Details() {
 
   const item = properties.find((item) => item.slug === slug);
 
-  const breadcrumbLinks = [
-    { href: "/", text: "Home" },
-    { href: "/property-list", text: "Property Details" },
-  ];
   return (
     <div>
-      <section className="bg-cover pt-36 pb-20 relative bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight overflow-x-hidden" >
-        <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
-          <h2 className="text-midnight_text text-4xl lg:text-[50px] leading-[1.2] md:mx-auto md:max-w-60% text-center relative font-bold dark:text-white"> {item?.property_title} </h2>
-        </div>
-      </section>
-      <section>
-        <div className='container mx-auto dark:bg-darkmode'>
-          <div className="h-[580px] max-w-5xl mx-auto w-full">
-            {item?.property_img &&
+      <section className="relative pt-32 pb-12 bg-white overflow-hidden">
+        <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
+          <div className="relative mx-auto w-full max-w-6xl">
+            {item?.property_img && (
               <Image
-                src={item?.property_img}
-                alt={item?.property_title}
-                width={1000}
-                height={600}
-                className='h-full w-full object-cover rounded-lg'
-              />}
+                src={item.property_img}
+                alt={item.property_title}
+                width={1920}
+                height={1080}
+                priority
+                className="w-full h-auto max-h-[70vh] object-contain"
+              />
+            )}
           </div>
         </div>
       </section>

@@ -20,7 +20,7 @@ const ErrorPage = () => {
         description="We Can't Seem to Find The Page You're Looking For."
         breadcrumbLinks={breadcrumbLinks}
       />
-      <section className="bg-white pt-8 pb-20 dark:bg-darkmode">
+      <section className="bg-white pt-8 pb-20">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 md:w-5/12 lg:w-6/12">
@@ -69,10 +69,10 @@ const ErrorPage = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="mb-5 text-2xl font-semibold text-midnight_text dark:text-white">
+                <h3 className="mb-5 text-2xl font-semibold text-midnight_text">
                   We Can&#39;t Seem to Find The Page You&#39;re Looking For.
                 </h3>
-                <p className="mb-8 text-base text-body-color dark:text-dark-6">
+                <p className="mb-8 text-base text-body-color">
                   Oops! The page you are looking for does not exist. It might have
                   been moved or deleted.
                 </p>

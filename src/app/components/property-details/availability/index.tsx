@@ -48,7 +48,7 @@ export default function Availability() {
   if (loading) return <div className='text-center py-20'>Cargando unidades...</div>;
 
   return (
-    <div className='bg-[#F0F6FA] dark:bg-[#111929] lg:py-24 py-16'>
+    <div className='bg-[#F0F6FA] lg:py-24 py-16'>
       <div className='max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8'>
         <p className='mb-[16px] text-[24px] sm:text-[36px] justify-center flex font-bold'>
           Unidades Disponibles
@@ -60,7 +60,7 @@ export default function Availability() {
         <div className="overflow-x-auto">
           <table className="w-full text-center text-sm sm:text-lg text-gray">
             <thead>
-              <tr className='border-b border-border dark:border-dark_border'>
+              <tr className='border-b border-border'>
                 <th className="py-2 sm:py-4 px-2 text-center">Unidad</th>
                 <th className="py-2 sm:py-4 px-2 text-center">Habitaciones</th>
                 <th className="py-2 sm:py-4 px-2 text-center">Baños</th>
@@ -72,7 +72,7 @@ export default function Availability() {
             <tbody>
               {properties.length > 0 ? (
                 properties.map((property) => (
-                  <tr key={property.id} className='border-b border-border dark:border-dark_border'>
+                  <tr key={property.id} className='border-b border-border'>
                     <td className="py-2 sm:py-4 px-2">{property.property_title}</td>
                     <td className="py-2 sm:py-4 px-2">{property.rooms}</td>
                     <td className="py-2 sm:py-4 px-2">{property.bathrooms}</td>

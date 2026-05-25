@@ -44,12 +44,7 @@ const searchOptions = {
     ],
     category : [
         { value:'', label: 'Categoría' },
-        { value:'apartment', label: 'Apartamento' },
-        { value:'villa', label: 'Villa' },
-        { value:'office', label: 'Oficina' },
-        { value:'shop', label: 'Local' },
-        { value:'house', label: 'Casa' },
-        { value:'warehouse', label: 'Depósito' },
+        { value:'lotes', label: 'Lotes residenciales' },
     ],
     beds: [
         { value: '', label: 'Habitaciones' },

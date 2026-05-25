@@ -16,14 +16,14 @@ export default function Calculator() {
   };
 
   return (
-    <section className="dark:bg-darkmode">
+    <section>
       <div
         className="container px-4 lg:max-w-screen-xl md:max-w-screen-md mx-auto flex flex-col lg:flex-row gap-16 justify-between items-center"
         data-aos="fade-left"
       >
         <div className="max-w-37.5 px-0 mb-8 md:mb-0" data-aos="fade-right">
           <h2
-            className="text-4xl mb-4 font-bold text-midnight_text dark:text-white"
+            className="text-4xl mb-4 font-bold text-midnight_text"
             data-aos="fade-left"
           >
             Ahorra tu dinero
@@ -39,7 +39,7 @@ export default function Calculator() {
                   data-aos="fade-left"
                   data-aos-delay="100"
                 >
-                  <p className="text-3xl text-midnight_text dark:text-white">
+                  <p className="text-3xl text-midnight_text">
                     3% de ahorro
                   </p>
                   <p className="text-gray text-base">Sobre $50K</p>
@@ -49,7 +49,7 @@ export default function Calculator() {
                   data-aos="fade-left"
                   data-aos-delay="200"
                 >
-                  <p className="text-3xl text-midnight_text dark:text-white">
+                  <p className="text-3xl text-midnight_text">
                     5% de ahorro
                   </p>
                   <p className="text-gray text-base">Sobre $75K</p>
@@ -59,7 +59,7 @@ export default function Calculator() {
                   data-aos="fade-left"
                   data-aos-delay="300"
                 >
-                  <p className="text-3xl text-midnight_text dark:text-white">
+                  <p className="text-3xl text-midnight_text">
                     8% de ahorro
                   </p>
                   <p className="text-gray text-base">Sobre $90K</p>

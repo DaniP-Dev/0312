@@ -105,7 +105,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                 description="Encuentra el condominio ideal para ti. Filtra por ubicación, precio y más opciones."
                 breadcrumbLinks={breadcrumbLinks}
             />
-            <section className='dark:bg-darkmode px-4'>
+            <section className='px-4'>
                 <div className='lg:max-w-screen-xl max-w-screen-md mx-auto'>
                     <div className='flex lg:hidden justify-between items-center mb-4'>
                         <span className='text-2xl ml-4 '>Filtro avanzado</span>
@@ -121,9 +121,9 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                     )}
 
                     <div onClick={toggleOffCanvas} className={`fixed inset-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-transform transform ${isOffCanvasOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-                        <div className='absolute top-0 right-0 w-3/4 max-w-xs bg-white dark:bg-semidark shadow-lg h-full'>
+                        <div className='absolute top-0 right-0 w-3/4 max-w-xs bg-white shadow-lg h-full'>
                             <div className='py-14 px-8'>
-                                <button onClick={toggleOffCanvas} className='absolute top-4 right-4 text-gray dark:text-gray-500'>
+                                <button onClick={toggleOffCanvas} className='absolute top-4 right-4 text-gray'>
                                     ✕
                                 </button>
                                 <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
@@ -134,7 +134,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             <input
                                                 placeholder={option.placeholder}
                                                 type='text'
-                                                className='py-3 w-full pl-3 pr-9 border border-border dark:bg-semidark dark:border-dark_border dark:focus:border-primary  !rounded-lg focus-visible:outline-none focus:border-primary'
+                                                className='py-3 w-full pl-3 pr-9 border border-border !rounded-lg focus-visible:outline-none focus:border-primary'
                                                 onChange={(e) => updateFilter('keyword', e.target.value)}
                                             />
                                         </div>
@@ -143,7 +143,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                     {/* Render Location dropdown */}
                                     <div className="relative inline-block">
                                         <select
-                                            className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
+                                            className='custom-select py-3 text-gray w-full pl-3 pr-9 mr-2 border border-border rounded-lg focus:border-primary'
                                             onChange={(e) => updateFilter('location', e.target.value)}
                                         >
                                             {searchData.locations.map((option, index) => (
@@ -154,7 +154,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
                                     {/* Example for range input */}
                                     <div>
-                                        <p className='text-gray dark:text-gray font-medium'>
+                                        <p className='text-gray font-medium'>
                                             Distancia: {price} millas
                                         </p>
                                         <input
@@ -164,7 +164,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             step=""
                                             value={price}
                                             onChange={handlePriceChange}
-                                            className="w-full h-0.5 bg-lightborder dark:bg-dark_border mt-2 rounded-lg appearance-none cursor-pointer"
+                                            className="w-full h-0.5 bg-lightborder mt-2 rounded-lg appearance-none cursor-pointer"
                                         />
                                     </div>
 
@@ -178,7 +178,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                         return (
                                             <div key={key} className="relative inline-block">
                                                 <select
-                                                    className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
+                                                    className='custom-select py-3 text-gray w-full pl-3 pr-9 mr-2 border border-border rounded-lg focus:border-primary'
                                                     onChange={(e) => handleSelectChange(key, e.target.value)}
                                                 >
                                                     {options.map((option, index) => (
@@ -193,7 +193,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
                                     {/* Example for another range input */}
                                     <div>
-                                        <p className='text-gray dark:text-gray'>
+                                        <p className='text-gray'>
                                             De ${price1} a $8000
                                         </p>
                                         <input
@@ -203,7 +203,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             step=""
                                             value={price1}
                                             onChange={handlePriceChange1}
-                                            className="w-full h-0.5 bg-lightborder dark:bg-dark_border mt-2 rounded-lg appearance-none cursor-pointer"
+                                            className="w-full h-0.5 bg-lightborder mt-2 rounded-lg appearance-none cursor-pointer"
                                         />
                                     </div>
 
@@ -220,7 +220,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
 
                     <div className='lg:grid lg:grid-cols-12 gap-4'>
                         <div className='hidden lg:block lg:col-span-4'>
-                            <div className='py-14 px-8 bg-white dark:bg-semidark shadow-property rounded-lg'>
+                            <div className='py-14 px-8 bg-white shadow-property rounded-lg'>
                                 <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
                                 <div className='flex flex-col gap-6'>
                                     {/* Map through keywords */}
@@ -229,7 +229,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             <input
                                                 placeholder={option.placeholder}
                                                 type='text'
-                                                className='py-3 w-full pl-3 pr-9 border border-border dark:bg-semidark dark:border-dark_border dark:focus:border-primary  !rounded-lg focus-visible:outline-none focus:border-primary'
+                                                className='py-3 w-full pl-3 pr-9 border border-border !rounded-lg focus-visible:outline-none focus:border-primary'
                                                 onChange={(e) => updateFilter('keyword', e.target.value)}
                                             />
                                         </div>
@@ -239,7 +239,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                     <div className="relative inline-block">
                                         <select
                                             value={filters.location}
-                                            className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
+                                            className='custom-select py-3 text-gray w-full pl-3 pr-9 mr-2 border border-border rounded-lg focus:border-primary'
                                             onChange={(e) => updateFilter('location', e.target.value)}
                                         >
                                             {searchData.locations.map((option, index) => (
@@ -259,7 +259,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             <div key={key} className="relative inline-block">
                                                 <select
                                                     value={filters[key]}
-                                                    className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
+                                                    className='custom-select py-3 text-gray w-full pl-3 pr-9 mr-2 border border-border rounded-lg focus:border-primary'
                                                     onChange={(e) => handleSelectChange(key, e.target.value)}
                                                 >
                                                     {options.map((option, index) => (
@@ -285,7 +285,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                             <div className="flex lg:flex-nowrap flex-wrap lg:gap-0 gap-6 w-full justify-between items-center pb-8">
                                 <div className="flex w-full justify-between px-4 flex-1">
                                     <h5 className='text-xl '>{filteredCount} condominios encontrados</h5>
-                                    <p className='flex text-gray dark:text-gray gap-2 items-center'>
+                                    <p className='flex text-gray gap-2 items-center'>
                                         Ordenar por
                                         <span>
                                             <Icon
@@ -300,7 +300,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 <div className="flex-1 flex gap-3 px-4">
                                     <select
                                         name="short"
-                                        className="custom-select border border-border dark:border-dark_border dark:bg-darkmode text-midnight_text focus:border-primary rounded-lg p-3 pr-9"
+                                        className="custom-select border border-border text-midnight_text focus:border-primary rounded-lg p-3 pr-9"
                                         value={sortOrder}
                                         onChange={(e) => setSortOrder(e.target.value as SortOrder)}
                                     >

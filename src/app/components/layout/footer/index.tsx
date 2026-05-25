@@ -7,13 +7,13 @@ import { PropertyContext } from "@/context-api/PropertyContext";
 const Footer = () => {
   const { updateFilter } = useContext(PropertyContext)!;
   return (
-    <footer className="relative z-10 bg-midnight_text dark:bg-semidark">
+    <footer className="relative z-10 bg-white border-t border-border">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md pt-10 pb-5 px-0 sm:px-6 lg:px-8">
         <div className="grid grid-cols-12 gap-4 items-center">
           <div className="md:col-span-4 col-span-12 flex items-center justify-center px-4 sm:px-0">
             <Link href="/" className="mb-6 inline-block max-w-40">
               <Image
-                src="/images/logo/logo-white.svg"
+                src="/images/logo.png"
                 alt="logo"
                 width={156}
                 height={38}
@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
           <div className="md:col-span-8 col-span-12 grid grid-cols-12 gap-4 px-4 sm:px-0 items-center">
             <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white">
+              <h4 className="mb-4 text-lg text-midnight_text">
                 Dirección
               </h4>
               <p className="mb-6 text-gray text-base">
@@ -80,14 +80,14 @@ const Footer = () => {
               </div>
             </div>
             <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white">
+              <h4 className="mb-4 text-lg text-midnight_text">
                 Enlaces rápidos
               </h4>
               <ul>
                 <li>
                   <Link
                     href="/contact"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Contacto y soporte
                   </Link>
@@ -95,7 +95,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/propiedades/propiedades-list"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Propiedades
                   </Link>
@@ -103,14 +103,14 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white">
+              <h4 className="mb-4 text-lg text-midnight_text">
                 Búsquedas populares
               </h4>
               <ul>
                 <li onClick={() => updateFilter("category", "apartment")}>
                   <Link
                     href="/propiedades/propiedades-list?category=apartment"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Apartamento en venta
                   </Link>
@@ -118,7 +118,7 @@ const Footer = () => {
                 <li onClick={() => updateFilter("category", "house")}>
                   <Link
                     href="/propiedades/propiedades-list?category=house"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Casa en venta
                   </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
                 <li onClick={() => updateFilter("category", "office")}>
                   <Link
                     href="/propiedades/propiedades-list?category=office"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Oficinas en venta
                   </Link>
@@ -134,7 +134,7 @@ const Footer = () => {
                 <li onClick={() => updateFilter("category", "shop")}>
                   <Link
                     href="/propiedades/propiedades-list?category=shop"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                    className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Local en venta
                   </Link>
@@ -144,28 +144,28 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-border dark:border-dark_border py-8">
+      <div className="border-t border-border py-8">
         <div className="container flex flex-col lg:flex-row justify-between items-center mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="lg:max-w-45 max-w-full text-center lg:text-left mb-4 lg:mb-0 flex items-center justify-center h-full">
             <div className="flex lg:flex-nowrap flex-wrap lg:flex-row lg:gap-11 gap-4 text-base sm:text-lg md:text-xl text-black text-opacity-50 items-center justify-center">
-              <div className="text-white">
+              <div className="text-midnight_text">
                 <span>Teléfonos :</span>
                 <ul className="list-disc list-inside text-gray">
                   <li>
-                    <Link href="tel:+573164240470" className="hover:text-white">
+                    <Link href="tel:+573164240470" className="hover:text-primary">
                       +(57) 3164240470
                     </Link>
                   </li>
                   <li>
-                    <Link href="tel:+573114017331" className="hover:text-white">
+                    <Link href="tel:+573114017331" className="hover:text-primary">
                       +(57) 3114017331
                     </Link>
                   </li>
                 </ul>
               </div>
-              <p className="text-white">
+              <p className="text-midnight_text">
                 Correo : &nbsp;
-                <Link href="mailto:constructora0312@gmail.com" className="text-gray hover:text-white">
+                <Link href="mailto:constructora0312@gmail.com" className="text-gray hover:text-primary">
                   constructora0312@gmail.com
                 </Link>
               </p>
@@ -173,12 +173,12 @@ const Footer = () => {
           </div>
           <div className="max-w-lg w-full flex items-center justify-center">
             <div className="flex justify-center lg:justify-end items-center w-full">
-              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white">
+              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-midnight_text">
                 Boletín
               </p>
               <input
                 type="text"
-                className="py-3 dark:bg-darkmode dark:text-gray !rounded-r-none border border-transparent dark:border-dark_border dark:focus:border-primary focus-visible:outline-none rounded-l-lg px-3 w-full sm:w-auto "
+                className="py-3 !rounded-r-none border border-border focus-visible:outline-none focus:border-primary rounded-l-lg px-3 w-full sm:w-auto"
                 placeholder="Correo electrónico"
               />
               <button className="py-4 px-5 sm:px-9 bg-primary text-base text-white rounded-r-lg hover:bg-blue-700">

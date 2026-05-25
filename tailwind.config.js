@@ -2,7 +2,7 @@ const { extendedConfig } = require("./src/utils/extendedConfig");
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: "class",
+  darkMode: false,
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",

@@ -38,7 +38,7 @@ export default function Features() {
 
 
     return (
-        <section className='dark:bg-darkmode'>
+        <section>
             <div className="container px-4 lg:max-w-screen-xl md:max-w-screen-md mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between">
                     <div className='mb-8 md:mb-0 flex-1'>
@@ -72,10 +72,10 @@ export default function Features() {
                                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                             </svg>
                                         </div>
-                                        <div className="p-4 dark:bg-[#111929]">
-                                            <div className="flex dark:text-gray justify-between items-center">
+                                        <div className="p-4">
+                                            <div className="flex text-gray justify-between items-center">
                                                 <div className="font-bold text-2xl">{property.property_price}</div>
-                                                <div className='text-xs bg-herobg dark:bg-white dark:text-blue-500 py-4 px-8 rounded-lg font-bold'>
+                                                <div className='text-xs bg-herobg text-blue-500 py-4 px-8 rounded-lg font-bold'>
                                                     {property.location}
                                                 </div>
                                             </div>
@@ -90,7 +90,7 @@ export default function Features() {
                     </div>
                     <div className='flex-1 '>
                         <div className="lg:pl-20 flex flex-col justify-center h-full">
-                            <p className='mb-8 md:mb-3.75 text-4xl font-bold text-midnight_text dark:text-white' data-aos="fade-left">Por qué la gente elige propiedad</p>
+                            <p className='mb-8 md:mb-3.75 text-4xl font-bold text-midnight_text' data-aos="fade-left">Por qué la gente elige propiedad</p>
                             {pageData.map(feature => (
                                 <div key={feature.id} className='flex mb-8 md:mb-3.75 items-center gap-8' data-aos="fade-left" data-aos-delay="100">
                                     <div className="bg-primary/20 p-4 rounded-full flex justify-center items-start">

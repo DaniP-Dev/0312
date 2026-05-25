@@ -74,7 +74,7 @@ export default function Tabbar() {
     };
 
     return (
-        <section className='dark:bg-darkmode'>
+        <section>
             <div className='max-w-screen-xl mx-auto'>
                 <div className="flex flex-wrap justify-center gap-1 bg-transparent" role="tablist">
                     {tabs.map((tab) => (
@@ -107,7 +107,7 @@ export default function Tabbar() {
                             <div className="max-w-6xl mx-auto" data-aos='fade-up'>
                                 <div className="flex flex-col lg:flex-row">
                                     <div className="lg:w-1/2 px-4 flex flex-col justify-center">
-                                        <p className='md:text-4xl text-[28px] leading-[1.2] text-midnight_text dark:text-white font-bold'>
+                                        <p className='md:text-4xl text-[28px] leading-[1.2] text-midnight_text font-bold'>
                                             {content[tab.label]?.title}
                                         </p>
                                         <p className='my-6 text-gray text-lg'>
