@@ -6,7 +6,7 @@ export default function TextSection() {
         <section className='py-0'>
             <div className='max-w-4xl mx-auto text-center text-gray' data-aos='fade-up'>
                 <p className='text-base sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-6 md:px-8'>
-                    Aenean facilisis, neque id sagittis volutpat, sapien nibh porttitor neque, et ullamcorper justo lectus tempus neque. Donec maximus dolor mauris, ut lacinia sem blandit eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+                    Descubre un espacio pensado para disfrutar cada momento: ubicacion privilegiada, diseno funcional y acabados que elevan tu estilo de vida. Aqui, comodidad, valor y calidad se encuentran en un solo lugar.
                 </p>
             </div>
         </section>

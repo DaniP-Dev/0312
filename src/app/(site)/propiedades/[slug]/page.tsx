@@ -7,6 +7,7 @@ import Availability from '@/app/components/property-details/availability';
 import Tabbar from '@/app/components/property-details/tabbar';
 import TextSection from '@/app/components/property-details/text-section';
 import DiscoverProperties from '@/app/components/home/property-option';
+import Features from '@/app/components/property-details/Features';
 
 
 export default function Details() {
@@ -35,21 +36,24 @@ export default function Details() {
     <div>
       <section className="relative pt-32 pb-12 bg-white overflow-hidden">
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
-          <div className="relative mx-auto w-full max-w-6xl">
-            {item?.property_img && (
+          <div className="relative mx-auto w-full max-w-6xl h-[clamp(240px,60vh,700px)]">
+            {item?.property_img ? (
               <Image
                 src={item.property_img}
                 alt={item.property_title}
-                width={1920}
-                height={1080}
+                fill
                 priority
-                className="w-full h-auto max-h-[70vh] object-contain"
+                sizes="(max-width: 768px) 100vw, 1200px"
+                className="object-contain"
               />
+            ) : (
+              <div className="h-full w-full bg-gray-100 animate-pulse" />
             )}
           </div>
         </div>
       </section>
       <TextSection />
+      <Features slug={String(slug ?? "")} />
       <CompanyInfo />
       <Tabbar />
       <Availability />
