@@ -15,7 +15,7 @@ interface PropertyContextType {
   properties: propertyData[];
   setProperties: Dispatch<SetStateAction<propertyData[]>>;
   filters: Filters;
-  setFilters: any;
+  setFilters: Dispatch<SetStateAction<Filters>>;
   updateFilter: (key: keyof Filters, value: string) => void;
 }
 

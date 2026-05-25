@@ -15,10 +15,10 @@ const description =
   "Constructora inmobiliaria especializada en la venta de condominios modernos y de calidad | La Guajira, Colombia";
 
 export const metadata: Metadata = {
-  title: "Contructora 0312",
+  title: "Constructora 0312",
   description,
   openGraph: {
-    title: "0312 | IGM ",
+    title: "Constructora 0312",
     description,
     images: ["/images/logo.png"],
   },
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={`${dmsans.className}`}>
         <AppContextProvider>
           <SessionProviderComp>

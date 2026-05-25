@@ -228,20 +228,6 @@ export const PackageStructure = () => {
                                                 icon="tabler:folder"
                                                 className="text-primary text-base inline-block me-2"
                                               />
-                                              blogs
-                                            </span>
-                                          </div>
-                                        </li>
-                                        <li className="py-2">
-                                          <div className="flex items-center gap-3">
-                                            <p className="text-xl text-black dark:text-gray">
-                                              |—
-                                            </p>
-                                            <span className="font-medium text-midnight_text dark:text-gray">
-                                              <Icon
-                                                icon="tabler:folder"
-                                                className="text-primary text-base inline-block me-2"
-                                              />
                                               contact
                                             </span>
                                           </div>

@@ -26,7 +26,7 @@ const Footer = () => {
                 Dirección
               </h4>
               <p className="mb-6 text-gray text-base">
-                Condominios Real Estate 4263 Wilkinson Street Tennessee
+                Constructora 0312, La Guajira, Colombia
               </p>
               <div className="flex items-center gap-2">
                 <a
@@ -100,14 +100,6 @@ const Footer = () => {
                     Propiedades
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/blogs"
-                    className="mb-3 inline-block text-base text-gray hover:text-white"
-                  >
-                    Blog
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="w-full lg:col-span-4 col-span-12">
@@ -120,7 +112,7 @@ const Footer = () => {
                     href="/propiedades/propiedades-list?category=apartment"
                     className="mb-3 inline-block text-base text-gray hover:text-white"
                   >
-                    Apartamento en renta
+                    Apartamento en venta
                   </Link>
                 </li>
                 <li onClick={() => updateFilter("category", "house")}>
@@ -144,7 +136,7 @@ const Footer = () => {
                     href="/propiedades/propiedades-list?category=shop"
                     className="mb-3 inline-block text-base text-gray hover:text-white"
                   >
-                    Local en renta
+                    Local en venta
                   </Link>
                 </li>
               </ul>
@@ -160,12 +152,12 @@ const Footer = () => {
                 <span>Teléfonos :</span>
                 <ul className="list-disc list-inside text-gray">
                   <li>
-                    <Link href="#" className="hover:text-white">
+                    <Link href="tel:+573164240470" className="hover:text-white">
                       +(57) 3164240470
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="hover:text-white">
+                    <Link href="tel:+573114017331" className="hover:text-white">
                       +(57) 3114017331
                     </Link>
                   </li>
@@ -173,7 +165,7 @@ const Footer = () => {
               </div>
               <p className="text-white">
                 Correo : &nbsp;
-                <Link href="#" className="text-gray hover:text-white">
+                <Link href="mailto:constructora0312@gmail.com" className="text-gray hover:text-white">
                   constructora0312@gmail.com
                 </Link>
               </p>

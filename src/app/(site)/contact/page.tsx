@@ -7,7 +7,7 @@ import ContactForm from "@/app/components/contact/form";
 import Location from "@/app/components/contact/office-location";
 export const metadata: Metadata = {
   title: "Contacto",
-  metadataBase: new URL("https://tudominio.com"), // Cambia por tu dominio real
+  description: "Contacta a Constructora 0312 para recibir asesoria en venta de condominios.",
 };
 
 const page = () => {

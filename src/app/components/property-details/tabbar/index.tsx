@@ -134,7 +134,7 @@ export default function Tabbar() {
                                     </div>
                                     <div className="lg:w-1/2 h-[450px] md:block hidden px-4">
                                         <Image
-                                            src={content[tab.label]?.image || '/images/blog/blog-1.jpg'}
+                                            src={content[tab.label]?.image || '/images/tabbar/tab-1.jpg'}
                                             alt={`Image for ${tab.label}`}
                                             width={570}
                                             height={367}

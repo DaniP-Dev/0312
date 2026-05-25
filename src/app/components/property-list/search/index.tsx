@@ -5,15 +5,36 @@ import Image from 'next/image';
 import HeroSub from '../../shared/hero-sub';
 import { PropertyContext } from '@/context-api/PropertyContext';
 import PropertyCard from '../../home/property-list/property-card';
+import { Filters } from '@/app/types/property/filtertypes';
+import { propertyData } from '@/app/types/property/propertyData';
+
+type SortOrder = "none" | "asc" | "desc";
+
+type SelectOption = {
+    value: string;
+    label: string;
+    placeholder?: string;
+};
+
+type SearchData = Record<string, SelectOption[]> & {
+    keywords: SelectOption[];
+    locations: SelectOption[];
+};
+
+type SearchFilterKey = Exclude<keyof Filters, "keyword" | "location" | "key">;
 
 export default function AdvanceSearch({ category }: { category?: string }) {
     const [price, setPrice] = useState(50);
     const [price1, setPrice1] = useState(50);
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
     const { properties, updateFilter, filters } = useContext(PropertyContext)!;
-    const [sortOrder, setSortOrder] = useState("none");
+    const [sortOrder, setSortOrder] = useState<SortOrder>("none");
     const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
-    const [searchData, setSearchData] = useState<any>([]);
+    const [searchData, setSearchData] = useState<SearchData>({
+        keywords: [],
+        locations: [],
+    });
+    const dropdownFilterKeys: SearchFilterKey[] = ["region", "status", "category", "beds", "baths", "garages", "tag"];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,8 +42,8 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                 const res = await fetch('/api/pagedata')
                 if (!res.ok) throw new Error('Failed to fetch')
 
-                const data = await res.json()
-                setSearchData(data?.searchOptions || [])
+                const data: { searchOptions?: SearchData } = await res.json()
+                setSearchData(data?.searchOptions || { keywords: [], locations: [] })
             } catch (error) {
                 console.error('Error fetching services:', error)
             }
@@ -45,8 +66,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
         setPrice1(Number(event.target.value));
     };
 
-    const handleSelectChange = (key: any, value: any) => {
-
+    const handleSelectChange = (key: SearchFilterKey, value: string) => {
         updateFilter(key, value);
     };
 
@@ -58,8 +78,8 @@ export default function AdvanceSearch({ category }: { category?: string }) {
         str.toLowerCase().replace(/s$/, '');
 
     const filteredProperties = category
-        ? properties.filter((data: any) =>
-            normalize(data.category) === normalize(category)
+        ? properties.filter((property) =>
+            normalize(property.category) === normalize(category)
         )
         : properties;
 
@@ -109,7 +129,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
                                 <div className='flex flex-col gap-6'>
                                     {/* Map through keywords */}
-                                    {searchData?.keywords?.map((option: any, index: any) => (
+                                    {searchData.keywords.map((option, index) => (
                                         <div key={`keyword-${index}`} className="relative inline-block">
                                             <input
                                                 placeholder={option.placeholder}
@@ -126,7 +146,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
                                             onChange={(e) => updateFilter('location', e.target.value)}
                                         >
-                                            {searchData?.locations?.map((option: any, index: any) => (
+                                            {searchData.locations.map((option, index) => (
                                                 <option key={`location-${index}`} value={option.value}>{option.label}</option>
                                             ))}
                                         </select>
@@ -149,25 +169,27 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                     </div>
 
                                     {/* Map through selects (regions, statuses, etc.) */}
-                                    {Object.entries(searchData).map(([key, options]) => (
-                                        key !== 'keywords' && key !== 'locations' && (
+                                    {dropdownFilterKeys.map((key) => {
+                                        const options = searchData[key] || [];
+                                        if (!options.length) {
+                                            return null;
+                                        }
+
+                                        return (
                                             <div key={key} className="relative inline-block">
                                                 <select
                                                     className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
                                                     onChange={(e) => handleSelectChange(key, e.target.value)}
                                                 >
-                                                    {(options as { value: string; label: string }[])?.map((option, index) => (
-                                                        'value' in option && (
-                                                            <option key={`${key}-${index}`} value={option.value}>
-                                                                {option.label}
-                                                            </option>
-                                                        )
+                                                    {options.map((option, index) => (
+                                                        <option key={`${key}-${index}`} value={option.value}>
+                                                            {option.label}
+                                                        </option>
                                                     ))}
-
                                                 </select>
                                             </div>
-                                        )
-                                    ))}
+                                        );
+                                    })}
 
                                     {/* Example for another range input */}
                                     <div>
@@ -202,7 +224,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
                                 <div className='flex flex-col gap-6'>
                                     {/* Map through keywords */}
-                                    {searchData?.keywords?.map((option: any, index: any) => (
+                                    {searchData.keywords.map((option, index) => (
                                         <div key={`keyword-${index}`} className="relative inline-block">
                                             <input
                                                 placeholder={option.placeholder}
@@ -220,30 +242,35 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                             className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
                                             onChange={(e) => updateFilter('location', e.target.value)}
                                         >
-                                            {searchData?.locations?.map((option: any, index: any) => (
+                                            {searchData.locations.map((option, index) => (
                                                 <option key={`location-${index}`} value={option.value}>{option.label}</option>
                                             ))}
                                         </select>
                                     </div>
 
                                     {/* Map through selects (regions, statuses, etc.) */}
-                                    {Object.entries(searchData).map(([key, options]) => (
-                                        key !== 'keywords' && key !== 'locations' && (
+                                    {dropdownFilterKeys.map((key) => {
+                                        const options = searchData[key] || [];
+                                        if (!options.length) {
+                                            return null;
+                                        }
+
+                                        return (
                                             <div key={key} className="relative inline-block">
                                                 <select
-                                                    value={filters[key as keyof typeof filters] || ''}
+                                                    value={filters[key]}
                                                     className='custom-select py-3 text-gray dark:text-gray w-full pl-3 pr-9 mr-2 border border-border dark:border-dark_border dark:focus:border-primary dark:bg-semidark  rounded-lg focus:border-primary'
                                                     onChange={(e) => handleSelectChange(key, e.target.value)}
                                                 >
-                                                    {(options as { value: string; label: string }[])?.map((option, index) => (
+                                                    {options.map((option, index) => (
                                                         <option key={`${key}-${index}`} value={option.value}>
                                                             {option.label}
                                                         </option>
                                                     ))}
                                                 </select>
                                             </div>
-                                        )
-                                    ))}
+                                        );
+                                    })}
 
                                     {/* Example button */}
                                     <div>
@@ -275,7 +302,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                         name="short"
                                         className="custom-select border border-border dark:border-dark_border dark:bg-darkmode text-midnight_text focus:border-primary rounded-lg p-3 pr-9"
                                         value={sortOrder}
-                                        onChange={(e) => setSortOrder(e.target.value)}
+                                        onChange={(e) => setSortOrder(e.target.value as SortOrder)}
                                     >
                                         <option value="none">Ordenar por título</option>
                                         <option value="asc">Título (A-Z)</option>
@@ -306,8 +333,8 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                             </div>
                             {filteredProperties.length > 0 ?
                                 <div className={` ${viewMode === 'grid' ? 'grid sm:grid-cols-2' : 'flex flex-col'} gap-6 px-4`}>
-                                    {(sortOrder ? sortedProperties : properties).map((data: any, index: any) => (
-                                        <PropertyCard key={index} property={data} viewMode={viewMode} />
+                                    {(sortOrder ? sortedProperties : properties).map((property: propertyData) => (
+                                        <PropertyCard key={property.id} property={property} viewMode={viewMode} />
                                     ))}
                                 </div>
                                 :

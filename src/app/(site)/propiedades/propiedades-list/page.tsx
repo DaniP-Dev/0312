@@ -6,7 +6,13 @@ export const metadata: Metadata = {
   title: "Propiedades",
 };
 
-const Page = async ({ searchParams }: any) => {
+type PropertyListPageProps = {
+  searchParams?: Promise<{
+    category?: string;
+  }>;
+};
+
+const Page = async ({ searchParams }: PropertyListPageProps) => {
   const resolvedSearchParams = await searchParams;
   const category = resolvedSearchParams?.category || "";
 

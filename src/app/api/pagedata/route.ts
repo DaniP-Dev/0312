@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 
 const menuItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Blog", href: "/#blog" },
+    { name: "Inicio", href: "#home" },
+    { name: "Nosotros", href: "#about" },
+    { name: "Servicios", href: "#services" },
+    { name: "Propiedades", href: "#properties" },
+    { name: "Testimonios", href: "#testimonials" },
 ];
 
 const features = [
@@ -37,11 +36,11 @@ const searchOptions = {
     ],
     locations: [
         { value: '', label: 'Ubicación' }, // Opción de marcador de posición
-        { value: 'California', label: 'California' },
-        { value: 'Texas', label: 'Texas' },
-        { value: 'New York', label: 'Nueva York' },
-        { value: 'Florida', label: 'Florida' },
-        { value: 'Illinois', label: 'Illinois' },
+        { value: 'Soledad, Atlántico', label: 'Soledad, Atlántico' },
+        { value: 'Barranquilla, Atlántico', label: 'Barranquilla, Atlántico' },
+        { value: 'Riohacha, La Guajira', label: 'Riohacha, La Guajira' },
+        { value: 'Maicao, La Guajira', label: 'Maicao, La Guajira' },
+        { value: 'Santa Marta, Magdalena', label: 'Santa Marta, Magdalena' },
     ],
     category : [
         { value:'', label: 'Categoría' },
