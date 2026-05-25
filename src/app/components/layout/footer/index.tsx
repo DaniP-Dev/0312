@@ -94,7 +94,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/propiedades/propiedades-list"
+                    href="/propiedades"
                     className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Propiedades
@@ -109,7 +109,7 @@ const Footer = () => {
               <ul>
                 <li onClick={() => updateFilter("category", "apartment")}>
                   <Link
-                    href="/propiedades/propiedades-list?category=apartment"
+                    href="/propiedades?category=apartment"
                     className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Apartamento en venta
@@ -117,7 +117,7 @@ const Footer = () => {
                 </li>
                 <li onClick={() => updateFilter("category", "house")}>
                   <Link
-                    href="/propiedades/propiedades-list?category=house"
+                    href="/propiedades?category=house"
                     className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Casa en venta
@@ -125,7 +125,7 @@ const Footer = () => {
                 </li>
                 <li onClick={() => updateFilter("category", "office")}>
                   <Link
-                    href="/propiedades/propiedades-list?category=office"
+                    href="/propiedades?category=office"
                     className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Oficinas en venta
@@ -133,7 +133,7 @@ const Footer = () => {
                 </li>
                 <li onClick={() => updateFilter("category", "shop")}>
                   <Link
-                    href="/propiedades/propiedades-list?category=shop"
+                    href="/propiedades?category=shop"
                     className="mb-3 inline-block text-base text-gray hover:text-primary"
                   >
                     Local en venta

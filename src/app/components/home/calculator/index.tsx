@@ -69,7 +69,7 @@ export default function Calculator() {
           </div>
           <div data-aos="fade-up">
             <Link
-              href="/propiedades/propiedades-list"
+              href="/propiedades"
               className="text-xl bg-primary py-3 px-8 text-white rounded-lg me-3 mb-2 border border-primary hover:bg-blue-700"
             >
               Comprar casa

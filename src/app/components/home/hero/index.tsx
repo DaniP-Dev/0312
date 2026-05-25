@@ -62,7 +62,7 @@ const Hero = () => {
 
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={() => router.push("/propiedades/propiedades-list")}
+                onClick={() => router.push("/propiedades")}
                 className="bg-primary text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 Ver propiedades

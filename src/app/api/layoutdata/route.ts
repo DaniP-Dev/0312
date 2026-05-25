@@ -4,7 +4,7 @@ const headerData = [
   { label: "Inicio", href: "/" },
   {
     label: "Propiedades",
-    href: "/propiedades/propiedades-list",
+    href: "/propiedades",
   },
   { label: "Contacto", href: "/contact" },
 ];

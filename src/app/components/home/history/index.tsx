@@ -19,7 +19,7 @@ export default function History() {
             Más de tres décadas ayudando a propietarios a vender sus condominios con éxito. Evolucionamos y mejoramos nuestros servicios para ofrecerte la mejor experiencia y resultados.
           </p>
           <Link
-            href="/propiedades/propiedades-list"
+            href="/propiedades"
             className="text-xl px-9 py-3 border border-primary text-primary hover:text-white hover:bg-primary rounded-lg"
           >
             Más detalles

@@ -24,7 +24,7 @@ const PropertyCard = ({ property, viewMode = "grid" }: PropertyCardProps) => {
       data-aos="fade-up"
     >
       <Link
-        href={`/propiedades/propiedades-list/${property.slug}`}
+        href={`/propiedades/${property.slug}`}
         className={`group ${isList ? "flex flex-col md:flex-row" : "flex flex-col"} `}
       >
         <div className={`relative ${isList ? "md:w-[38%]" : "w-full"}`}>
