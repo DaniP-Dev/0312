@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
 import { PropertyContext } from "@/context-api/PropertyContext";
+import { CONTACT } from "@/config/contact";
 
 const Footer = () => {
   const { updateFilter } = useContext(PropertyContext)!;
@@ -152,21 +153,16 @@ const Footer = () => {
                 <span>Teléfonos :</span>
                 <ul className="list-disc list-inside text-gray">
                   <li>
-                    <Link href="tel:+573164240470" className="hover:text-primary">
-                      +(57) 3164240470
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="tel:+573114017331" className="hover:text-primary">
-                      +(57) 3114017331
+                    <Link href={`tel:${CONTACT.phoneE164}`} className="hover:text-primary">
+                      {CONTACT.phoneDisplay}
                     </Link>
                   </li>
                 </ul>
               </div>
               <p className="text-midnight_text">
                 Correo : &nbsp;
-                <Link href="mailto:constructora0312@gmail.com" className="text-gray hover:text-primary">
-                  constructora0312@gmail.com
+                <Link href={`mailto:${CONTACT.email}`} className="text-gray hover:text-primary">
+                  {CONTACT.email}
                 </Link>
               </p>
             </div>

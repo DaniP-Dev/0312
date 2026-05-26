@@ -7,9 +7,11 @@ import Image from "next/image";
 import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
 import MobileHeaderLink from "./navigation/MobileHeaderLink";
+import { CONTACT } from "@/config/contact";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
+  const isHomePage = pathUrl === "/";
 
   const [data, setData] = useState<any[]>([]);
   const [user, setUser] = useState<{ user: any } | null>(null);
@@ -94,9 +96,15 @@ const Header: React.FC = () => {
     setUser(null);
   };
 
+  const isMobileHeroMode = isHomePage && !sticky && !navbarOpen;
+
   return (
     <header
-      className={`fixed h-24 top-0 z-50 w-full bg-white transition-all border-b border-border ${sticky ? "shadow-lg" : "shadow-sm"}`}
+      className={`fixed h-24 top-0 z-50 w-full transition-all duration-300 ${
+        isMobileHeroMode
+          ? "bg-transparent border-b border-transparent shadow-none lg:bg-white lg:border-border lg:shadow-sm"
+          : "bg-white border-b border-border shadow-sm"
+      } ${sticky ? "shadow-lg" : ""}`}
     >
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4">
         <div className="h-24 py-1">
@@ -109,22 +117,24 @@ const Header: React.FC = () => {
         </nav>
         <div className="flex items-center space-x-4">
           <Link
-            href="https://wa.me/573001234567" // Cambia el número por el tuyo
+            href={CONTACT.whatsappUrl}
             className="hidden lg:block bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600"
             target="_blank"
             rel="noopener noreferrer"
           >
             Whatsapp
           </Link>
-          <button
-            onClick={() => setNavbarOpen(!navbarOpen)}
-            className="block lg:hidden p-2 rounded-lg"
-            aria-label="Toggle mobile menu"
-          >
-            <span className="block w-6 h-0.5 bg-black"></span>
-            <span className="block w-6 h-0.5 bg-black mt-1.5"></span>
-            <span className="block w-6 h-0.5 bg-black mt-1.5"></span>
-          </button>
+          {!isMobileHeroMode && (
+            <button
+              onClick={() => setNavbarOpen(!navbarOpen)}
+              className="block lg:hidden p-2 rounded-xl transition-colors bg-transparent border border-transparent"
+              aria-label="Toggle mobile menu"
+            >
+              <span className="block w-6 h-0.5 bg-black"></span>
+              <span className="block w-6 h-0.5 mt-1.5 bg-black"></span>
+              <span className="block w-6 h-0.5 mt-1.5 bg-black"></span>
+            </button>
+          )}
         </div>
       </div>
       {navbarOpen && (
@@ -165,7 +175,7 @@ const Header: React.FC = () => {
           ))}
           <div className="mt-4 flex flex-col space-y-4 w-full">
             <Link
-              href="https://wa.me/573001234567" // Cambia el número por el tuyo
+              href={CONTACT.whatsappUrl}
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600"
               target="_blank"
               rel="noopener noreferrer"

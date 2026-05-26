@@ -4,25 +4,61 @@ import React, { useEffect, useState } from 'react';
 
 export default function Features() {
     const [propertiesData, setPropertiesData] = useState<any[]>([]);
-    const [pageData, setPageData] = useState<any[]>([]);
+    const reasons = [
+        {
+            id: 1,
+            title: "Seguridad 24 horas"
+        },
+        {
+            id: 2,
+            title: "Porteria moderna"
+        },
+        {
+            id: 3,
+            title: "Piscina familiar"
+        },
+        {
+            id: 4,
+            title: "Kiosko comunitario"
+        },
+        {
+            id: 5,
+            title: "Cancha polifuncional"
+        },
+        {
+            id: 6,
+            title: "Lago de 4000 metros"
+        },
+        {
+            id: 7,
+            title: "Parque por zonas"
+        },
+        {
+            id: 8,
+            title: "Boulevard central"
+        },
+        {
+            id: 9,
+            title: "Gimnasio"
+        },
+        {
+            id: 10,
+            title: "Caballeriza"
+        },
+    ];
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [resProperties, resPage] = await Promise.all([
-                    fetch('/api/propertydata'),
-                    fetch('/api/pagedata'),
-                ]);
+                const resProperties = await fetch('/api/propertydata');
 
-                if (!resProperties.ok || !resPage.ok) {
-                    throw new Error('Failed to fetch one or more APIs');
+                if (!resProperties.ok) {
+                    throw new Error('Failed to fetch properties API');
                 }
 
                 const properties = await resProperties.json();
-                const page = await resPage.json();
 
                 setPropertiesData(properties || []);
-                setPageData(page.features || {});
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -38,10 +74,10 @@ export default function Features() {
 
 
     return (
-        <section>
-            <div className="container px-4 lg:max-w-screen-xl md:max-w-screen-md mx-auto flex flex-col md:flex-row justify-between items-center">
-                <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between">
-                    <div className='mb-8 md:mb-0 flex-1'>
+        <section className="lg:min-h-screen lg:flex lg:items-center">
+            <div className="container px-2 sm:px-4 lg:max-w-screen-xl md:max-w-screen-md mx-auto flex flex-col md:flex-row justify-between items-center">
+                <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between w-full">
+                    <div className='mb-8 md:mb-0 flex-1 hidden lg:hidden'>
                         <div className='relative' data-aos="fade-right">
                             <Image
                                 src="/images/features/features_iimage.jpg"
@@ -88,25 +124,39 @@ export default function Features() {
                             </div>
                         </div>
                     </div>
-                    <div className='flex-1 '>
-                        <div className="lg:pl-20 flex flex-col justify-center h-full">
-                            <p className='mb-8 md:mb-3.75 text-4xl font-bold text-midnight_text' data-aos="fade-left">Por qué la gente elige propiedad</p>
-                            {pageData.map(feature => (
-                                <div key={feature.id} className='flex mb-8 md:mb-3.75 items-center gap-8' data-aos="fade-left" data-aos-delay="100">
-                                    <div className="bg-primary/20 p-4 rounded-full flex justify-center items-start">
-                                        <Image
-                                            src={feature.imgSrc}
-                                            alt={feature.title}
-                                            height={78}
-                                            width={78}
-                                        />
+                    <div className='flex-1 w-full'>
+                        <div className="lg:pl-0 flex flex-col justify-center h-full">
+                            <p
+                                className='text-primary font-semibold uppercase tracking-wide mb-3'
+                                data-aos="fade-left"
+                            >
+                                Nuevo Condominio Paraiso Real
+                            </p>
+                            <p
+                                className='mb-5 md:mb-3.75 text-3xl sm:text-4xl lg:text-3xl leading-tight font-bold text-midnight_text max-w-[20ch]'
+                                data-aos="fade-left"
+                            >
+                                10 razones para invertir hoy
+                            </p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-3">
+                                {reasons.map((feature) => (
+                                    <div
+                                        key={feature.id}
+                                        className='flex items-center gap-4 p-4 rounded-2xl border border-border bg-white/90 lg:aspect-square lg:rounded-full lg:border-0 lg:bg-primary/10 lg:flex-col lg:items-center lg:justify-center lg:gap-2 lg:p-3 lg:text-center'
+                                        data-aos="fade-left"
+                                        data-aos-delay="100"
+                                    >
+                                        <div className="p-1.5 rounded-full flex justify-center items-start shrink-0 lg:p-0">
+                                            <span className="h-[52px] w-[52px] rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold lg:h-11 lg:w-11 lg:text-base">
+                                                {feature.id}
+                                            </span>
+                                        </div>
+                                        <div className='flex-col'>
+                                            <p className='text-lg font-semibold leading-snug lg:text-base'>{feature.title}</p>
+                                        </div>
                                     </div>
-                                    <div className='flex-col'>
-                                        <p className='text-2xl mb-2'>{feature.title}</p>
-                                        <p className='text-gray text-base'>{feature.description}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
