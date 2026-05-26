@@ -1,12 +1,15 @@
 .main-div::before {
   content: "";
   position: absolute;
-  top: 4px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 3px;
+  top: 0;
+  left: 10px;
+  width: 3px;
+  height: 100%;
   background-color: #6bc1f9;
+}
+
+.main-div {
+  position: relative;
 }
 
 .relative-container {
@@ -16,7 +19,8 @@
 .money-dot::before {
   content: "";
   position: absolute;
-  top: -34px;
+  top: 4px;
+  left: 4px;
   background-color: #6bc1f9;
   width: 12px;
   height: 12px;
@@ -27,8 +31,8 @@
 .money-dot::after {
   content: "";
   position: absolute;
-  top: -39px;
-  left: -5px;
+  top: -1px;
+  left: -1px;
   padding: 6px;
   border-radius: 50%;
   border: 2px solid #6bc1f9;
@@ -46,6 +50,24 @@
 }
 
 @media (min-width: 768px) {
+  .main-div::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+  }
+
+  .money-dot::before {
+    top: -5px;
+    left: 0;
+  }
+
+  .money-dot::after {
+    top: -10px;
+    left: -5px;
+  }
+
   .estate-summary-bg {
     background: linear-gradient(to right, #fff 0%, #fff 50%, #2f73f2 50%, #2f73f2 100%);
   }

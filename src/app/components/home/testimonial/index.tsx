@@ -19,17 +19,17 @@ export default function Testimonials() {
                     </div>
                     <div className="flex-1" data-aos="fade-left">
                         <Image
-                            src="/images/testimonial/quote.svg"
-                            alt="quote"
+                            src="/images/logo.png"
+                            alt="Logo Constructora 0312"
                             className="mb-4 md:mb-6"
                             height={135}
                             width={135}
                         />
                         <p className="text-lg md:text-2xl text-gray mb-6 md:mb-12">
-                            "Vendí mi condominio en menos tiempo del esperado. El equipo me acompañó en todo el proceso y la promoción fue excelente. ¡Muy recomendados!"
+                            "En Constructora 0312 te acompanamos en cada etapa para que inviertas con confianza, desde la eleccion del lote hasta el desarrollo de tu proyecto."
                         </p>
-                        <p className="text-lg md:text-2xl">Stephanie Sue</p>
-                        <p className="text-gray text-lg md:text-xl">Propietaria satisfecha</p>
+                        <p className="text-lg md:text-2xl">Constructora 0312</p>
+                        <p className="text-gray text-lg md:text-xl">Respaldo tecnico, legal y comercial</p>
                     </div>
                 </div>
             </div>
