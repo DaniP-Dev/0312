@@ -26,10 +26,10 @@ export default function Testimonials() {
                             width={135}
                         />
                         <p className="text-lg md:text-2xl text-gray mb-6 md:mb-12">
-                            "En Constructora 0312 te acompanamos en cada etapa para que inviertas con confianza, desde la eleccion del lote hasta el desarrollo de tu proyecto."
+                            "En Constructora 0312 te brindamos informacion clara para que inviertas con confianza, desde la eleccion del lote hasta el desarrollo de tu proyecto."
                         </p>
                         <p className="text-lg md:text-2xl">Constructora 0312</p>
-                        <p className="text-gray text-lg md:text-xl">Respaldo tecnico, legal y comercial</p>
+                        <p className="text-gray text-lg md:text-xl">Informacion tecnica y comercial</p>
                     </div>
                 </div>
             </div>

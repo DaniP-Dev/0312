@@ -13,7 +13,7 @@ const features = [
         id: 1,
         imgSrc: "/images/features/rating.svg",
         title: "Expertos en venta de condominios",
-        description: "Nuestro equipo especializado te acompaña en cada paso para vender tu condominio de forma rápida y segura."
+        description: "Nuestro equipo especializado te brinda informacion clara para vender tu condominio de forma rapida y segura."
     },
     {
         id: 2,

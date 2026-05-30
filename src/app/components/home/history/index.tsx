@@ -18,9 +18,9 @@ export default function History() {
           </p>
           <p className="mb-8 pb-2 text-gray">
             Somos una constructora enfocada en proyectos residenciales con
-            acompanamiento tecnico, legal y comercial en cada etapa. Nuestro
-            compromiso es ayudarte a tomar decisiones seguras para invertir y
-            construir patrimonio.
+            informacion tecnica y comercial en cada etapa. Nuestro compromiso es
+            ayudarte a tomar decisiones seguras para invertir y construir
+            patrimonio.
           </p>
           <Link
             href="/propiedades"
@@ -55,7 +55,7 @@ export default function History() {
               />
             </div>
             <p className="text-black text-opacity-60">
-              Acompannamiento integral para compra de lote, diseno y construccion
+              Informacion integral sobre compra de lote, diseno y construccion
               personalizada.
             </p>
             <Link

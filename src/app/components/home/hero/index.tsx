@@ -96,9 +96,9 @@ const Hero = () => {
               Separa tu lote hoy y aprovecha esta etapa de preventa.
             </p>
             <p className="text-gray text-base md:text-lg leading-7 md:leading-8 max-w-2xl mb-6">
-              Invierte en el nuevo condominio con ubicacion estrategica, respaldo
-              legal y valorizacion proyectada. Oferta especial por tiempo
-              limitado.
+              Invierte en el nuevo condominio con ubicacion estrategica,
+              informacion clara y valorizacion proyectada. Oferta especial por
+              tiempo limitado.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
